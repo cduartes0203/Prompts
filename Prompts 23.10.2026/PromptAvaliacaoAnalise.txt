@@ -1,0 +1,180 @@
+# MÓDULO: AVALIAÇÃO POR ANÁLISE — ARTIGO CIENTÍFICO OU ESTUDO DE CASO (v3)
+
+Use este módulo junto com os arquivos 00_NucleoComum.txt e 00_RegrasAvaliacao.txt. O núcleo contém as regras gerais de fases, formato de saída, fidelidade, números, tabelas, template de documentos e verificação; as regras de avaliação contêm entrega, níveis, rubricas, formulário e correção assistida por IA. Este módulo acrescenta o que é específico desta tarefa.
+
+Finalidade: elaborar uma avaliação em que os estudantes analisam criticamente um arquivo principal e entregam um relatório técnico e, opcionalmente, uma apresentação em slides. Há dois objetos de análise:
+
+- ARTIGO: um artigo científico, analisado quanto a problema, método, resultados, contribuições e limitações.
+- ESTUDO DE CASO: um fato real (acidente, falha, incidente ou ocorrência técnica) relatado em reportagem ou matéria, confrontado com um ou mais documentos correlatos (normas regulamentadoras, normas técnicas, manuais, legislação ou procedimentos). Exemplos: acidente elétrico + NR-10 (ESE); explosão de caldeira + NR-13 (MqnsTerm); acidente com máquina + NR-12 (FSI); dano ambiental + legislação ambiental (EMA).
+
+São gerados dois scripts para Content.tex: um para os estudantes e outro reservado ao professor.
+
+Os parâmetros desta tarefa ficam na última seção deste arquivo ("PARÂMETROS"). Preencha somente ali.
+
+# 1. PAPÉIS DOS ARQUIVOS
+
+1. ARQUIVO PRINCIPAL: o artigo (ARTIGO) ou o relato do fato (ESTUDO DE CASO). É o objeto central da análise. Deve haver exatamente um.
+2. REFERÊNCIA CORRELATA (somente ESTUDO DE CASO): estabelece os requisitos com os quais o fato será confrontado. Deve haver pelo menos uma.
+3. Se faltar o arquivo principal ou, em ESTUDO DE CASO, não houver nenhuma referência correlata, pare e peça o arquivo ausente, mesmo com `PULAR_FASE_1: SIM`.
+4. Se um arquivo não puder ser classificado com segurança em um dos papéis, pergunte ao professor.
+
+# 2. REGRAS COMUNS
+
+1. O arquivo principal é o objeto central da análise. Fontes externas podem contextualizar, comparar ou aprofundar, mas não substituem a sua leitura e devem ser citadas conforme a ABNT.
+2. O relatório não tem limite máximo de páginas, mas deve ser objetivo, organizado e sem repetições.
+3. Havendo apresentação, ela respeita o limite de slides do parâmetro, com a capa incluída na contagem.
+4. Não invente dados, métodos, resultados, conclusões, limitações ou detalhes do caso que não estejam nos arquivos.
+5. Com SOMENTE RELATÓRIO, ignore todos os parâmetros, critérios e seções relativos à apresentação.
+
+# 3. REGRAS ADICIONAIS DO ESTUDO DE CASO
+
+1. Use exclusivamente a versão da referência correlata anexada. Não complete, atualize ou cite itens de memória. Se a data do fato for anterior à versão anexada, sinalize na Fase 1 que requisitos podem ter mudado desde a ocorrência.
+2. Diferencie sempre, na Fase 1 e nos scripts:
+   - FATO RELATADO: o que consta na reportagem;
+   - INFERÊNCIA TÉCNICA: conclusão fundamentada nos fatos relatados e na referência;
+   - HIPÓTESE: suposição necessária para prosseguir a análise, declarada como tal.
+3. Os estudantes também devem declarar explicitamente as hipóteses que adotarem, justificando-as.
+4. Não acrescente ao caso detalhes que não constam da reportagem (tensões, equipamentos, procedimentos, horários, número de envolvidos).
+5. Citações da referência correlata indicam o item ou subitem exato, por exemplo "NR-10, item 10.2.8.1". Citações genéricas, como "conforme a NR-10", não bastam.
+6. Medidas preventivas e corretivas seguem a hierarquia de controles: eliminação, substituição, controles de engenharia, controles administrativos e, por último, equipamentos de proteção.
+7. Cuidados éticos: não reproduza nomes de vítimas nem de pessoas envolvidas (use designações genéricas, como "o trabalhador"); mantenha tom técnico e respeitoso; trate de não conformidades técnicas e normativas, sem juízo de culpa ou responsabilidade jurídica.
+8. O método de análise de causas segue o parâmetro. No padrão LIVRE, o estudante escolhe e justifica o método.
+
+# 4. COMPOSIÇÃO DA NOTA
+
+1. RELATÓRIO + APRESENTAÇÃO, com os pesos padrão:
+\[
+N_{\text{rel}}=\frac{N_{\text{rel,bruta}}}{10}\times 7{,}0
+\qquad
+N_{\text{apr}}=\frac{N_{\text{apr,bruta}}}{10}\times 3{,}0
+\qquad
+N_{\text{final}}=N_{\text{rel}}+N_{\text{apr}}
+\]
+com \(0\leq N_{\text{rel}}\leq 7{,}0\) e \(0\leq N_{\text{apr}}\leq 3{,}0\). Se o parâmetro de pesos for diferente, ajuste os fatores e verifique que o máximo continua sendo \(10{,}0\).
+2. SOMENTE RELATÓRIO:
+\[
+N_{\text{final}}=N_{\text{rel,bruta}},\qquad 0\leq N_{\text{final}}\leq 10{,}0.
+\]
+3. Atraso: nota final \(0{,}0\) ([R-AV-ADMIN], item 2).
+
+# 5. CRITÉRIOS
+
+## 5.1 Relatório (REL-XX)
+
+Entre 5 e 10 critérios, derivados do conteúdo efetivo dos arquivos e selecionados (somente os pertinentes) do catálogo do objeto escolhido. Cada critério tem: identificador, título, orientação sobre o que analisar, evidências esperadas (no arquivo principal e, em ESTUDO DE CASO, na referência) e valor máximo. A soma é `10{,}0`.
+
+Catálogo ARTIGO: problema investigado; objetivos; fundamentação teórica; metodologia; dados, indicadores ou critérios; resultados; discussão e interpretação; contribuições; limitações; relação com a disciplina, aplicações ou comparação com fontes externas.
+
+Catálogo ESTUDO DE CASO:
+1. Reconstrução do caso: linha do tempo, local, agentes, equipamentos, instalação e consequências, com distinção entre fato relatado, inferência e hipótese.
+2. Identificação de perigos e riscos presentes no caso.
+3. Análise de causas: causas imediatas e causas básicas ou organizacionais, com o método adotado.
+4. Enquadramento normativo: não conformidades identificadas, com citação precisa dos itens da referência.
+5. Medidas preventivas e corretivas, pela hierarquia de controles e relacionadas aos itens da referência.
+6. Questão contrafactual (se SIM): qual medida teria evitado ou atenuado o fato, com base em qual item.
+7. Lições aprendidas e aplicação à prática profissional.
+8. Relação com os conteúdos da disciplina.
+9. Qualidade técnica da redação, das citações e das referências ABNT.
+
+Em ESTUDO DE CASO, a rubrica deve premiar a precisão das citações de itens e a declaração explícita de hipóteses, e penalizar citações genéricas e detalhes inventados sobre o caso.
+
+## 5.2 Apresentação (somente RELATÓRIO + APRESENTAÇÃO)
+
+1. Critérios documentais (APR-D), verificáveis pelo PDF dos slides e aptos para a correção assistida por IA: organização e sequência lógica; seleção e interpretação de evidências do arquivo principal (em ESTUDO DE CASO: reconstrução clara do caso e enquadramento normativo com itens citados); qualidade e legibilidade dos slides; respeito ao limite de slides; coerência com o relatório.
+2. Critérios orais (APR-O), observáveis apenas durante a apresentação e avaliados pelo professor: domínio do conteúdo (em ESTUDO DE CASO: do caso e da referência); clareza da comunicação; respeito ao tempo; respostas às perguntas.
+
+Consolide para evitar redundância. A soma dos pesos de APR-D e APR-O é `10{,}0`. Se o parâmetro de nota em grupo for PARTE INDIVIDUAL NA ARGUIÇÃO, indique quais critérios APR-O são atribuídos individualmente.
+
+# 6. FASE 1 — ANÁLISE E PLANEJAMENTO
+
+Apresente:
+
+1. Parâmetros assumidos: valores padrão aplicados, campos ausentes e confirmação dos papéis dos arquivos.
+2. Título proposto para a avaliação.
+3. ARTIGO: contextualização breve do artigo (problema, relevância e abordagem), sem reproduzir o resumo.
+4. ESTUDO DE CASO:
+   - síntese factual do caso, somente com o que consta na reportagem: data e local; linha do tempo; agentes envolvidos (designações genéricas); equipamentos, instalações e atividades; consequências relatadas;
+   - identificação da referência correlata: título, número, versão ou ano, itens ou capítulos propostos como escopo e aviso de defasagem, se houver;
+   - matriz fato × referência, em tabela com as colunas: evento ou condição do caso; classificação da informação (FATO RELATADO, INFERÊNCIA TÉCNICA ou HIPÓTESE); item da referência aplicável; resumo do requisito; classificação da relação (NÃO CONFORMIDADE EVIDENTE, NÃO CONFORMIDADE PROVÁVEL, HIPÓTESE ou NÃO APLICÁVEL); medida preventiva relacionada.
+5. Critérios REL-XX propostos, com orientação resumida, evidências esperadas e valor máximo.
+6. Critérios APR-D e APR-O propostos, com pesos (somente se houver apresentação).
+7. Justificativa pedagógica resumida das escolhas.
+8. Perguntas objetivas somente sobre informações indispensáveis ausentes.
+
+Encerre a resposta e aguarde a aprovação.
+
+# 7. FASE 2 — SCRIPT 1: AVALIAÇÃO DESTINADA AOS ESTUDANTES
+
+Resposta própria ([R-SAIDA]). Primeira linha de conteúdo após o cabeçalho: `% SCRIPT 1 — AVALIAÇÃO DESTINADA AOS ESTUDANTES`.
+
+Configuração sugerida no cabeçalho: `\def\TipoDocumento{AVALIACAO}` e `\def\DocDescricao{...}`, com "Análise de artigo científico" (ARTIGO) ou "Estudo de caso: <título aprovado>" (ESTUDO DE CASO), salvo outro título aprovado.
+
+Seções mínimas (sem repetir o subtítulo automático "Descrição e Procedimentos"):
+
+1. Objetivo e orientações gerais: objetivo da avaliação; modalidade; leitura integral do arquivo principal (e, em ESTUDO DE CASO, dos itens indicados da referência); entregáveis; argumentos sustentados por evidências; uso de fontes externas com citação ABNT; arquivo principal como objeto central; regra de uso de IA (somente se o parâmetro não for "NÃO INCLUIR"). Em ESTUDO DE CASO, acrescente: distinção obrigatória entre fato relatado, inferência e hipótese; declaração de hipóteses; citação precisa de itens; cuidados éticos.
+2. Contextualização (ARTIGO) ou apresentação do caso (ESTUDO DE CASO): breve, correta e específica, sem entregar a análise pronta nem antecipar as não conformidades e as medidas.
+3. Documentos de referência (somente ESTUDO DE CASO): identificação dos arquivos e dos itens ou capítulos que delimitam a análise.
+4. Relatório: critérios REL-XX com identificador, título, orientação, evidências esperadas e valor máximo; estrutura exigida (introdução, desenvolvimento organizado pelos critérios — em ESTUDO DE CASO, precedido da descrição do caso —, considerações finais ou conclusão, referências ABNT); em ESTUDO DE CASO, método de análise de causas e questão contrafactual (se SIM); ausência de limite máximo de páginas; fórmula de conversão.
+5. Apresentação (somente se houver): limite de slides (com a capa), tempo, tempo de perguntas, critérios APR-D e APR-O com pesos, coerência com o relatório; fórmula de conversão.
+6. Entrega: prazo e horário; Google Classroom; PDF(s) separados conforme os entregáveis; identificação e convenção de nomes; conferir abertura e legibilidade antes do envio.
+7. Composição da nota: fórmulas da seção 4 aplicáveis e regra de nota zero por atraso em destaque ([R-AV-ADMIN], item 2).
+
+# 8. FASE 2 — SCRIPT 2: ROTEIRO RESERVADO AO PROFESSOR
+
+Resposta própria, depois do Script 1. Primeira linha de conteúdo após o cabeçalho: `% SCRIPT 2 — ROTEIRO DE CORREÇÃO RESERVADO AO PROFESSOR`.
+
+Configuração sugerida no cabeçalho: `\def\TipoDocumento{OUTRO}`, `\def\RotuloDocumentoPersonalizado{Roteiro de Correção}` e `\def\DocSubtitulo{Uso exclusivo do professor}`.
+
+Conteúdo:
+
+1. Resumo dos critérios, pesos e fórmulas, idênticos ao Script 1.
+2. Referência para a correção:
+   - ARTIGO: pontos-chave do artigo que o estudante deveria identificar (resultados, métodos e limitações), com as páginas do artigo.
+   - ESTUDO DE CASO: síntese factual do caso; matriz fato × referência esperada, com os itens citados; não conformidades principais; medidas preventivas esperadas, pela hierarquia de controles; interpretações alternativas aceitáveis e hipóteses razoáveis; resposta esperada para a questão contrafactual (se SIM).
+3. Rubricas REL-XX (e APR-XX, se houver) no layout de [R-AV-RUBRICA], com descritores específicos deste artigo ou deste caso.
+4. Ficha de avaliação oral para uso em sala, com os critérios APR-O, espaço para cada estudante ou grupo e registro do tempo (somente se houver apresentação).
+5. Penalidades administrativas ([R-AV-ADMIN]).
+6. Formulário final de correção ([R-AV-FORMULARIO]).
+7. Correção assistida por IA ([R-AV-CORRECAO-IA]), aplicável ao relatório e aos critérios APR-D; os critérios APR-O são lançados pelo professor a partir da ficha oral. Em ESTUDO DE CASO, acrescente que a IA avaliadora deve conferir cada item citado pelo estudante contra a referência anexada e verificar se os detalhes apresentados como fato constam da reportagem.
+
+# 9. VERIFICAÇÃO ESPECÍFICA DESTE MÓDULO
+
+1. [R-AV-VERIFICACAO] foi cumprida.
+2. O relatório tem entre 5 e 10 critérios; se houver apresentação, APR-D e APR-O somam `10{,}0`.
+3. As fórmulas de nota correspondem aos entregáveis e aos pesos escolhidos.
+4. O limite de slides e a entrega pelo Google Classroom estão explícitos; o relatório não recebeu limite máximo de páginas.
+5. Não há referências a apresentação quando os entregáveis forem SOMENTE RELATÓRIO.
+6. ESTUDO DE CASO: há exatamente um arquivo principal e pelo menos uma referência correlata; nenhum detalhe do caso foi inventado; fato, inferência e hipótese estão distinguidos; todos os itens citados existem na versão anexada; as medidas seguem a hierarquia de controles; não aparecem nomes de vítimas ou envolvidos nem juízo de culpa jurídica.
+
+# PARÂMETROS (preencha somente aqui — última seção do arquivo)
+
+Campos deixados como estão (com colchetes) assumem o padrão indicado. Campos marcados OBRIGATÓRIO não têm padrão e precisam ser preenchidos. Para preencher, substitua o conteúdo entre colchetes pelo valor desejado.
+
+PULAR_FASE_1: [SIM / NÃO — padrão: NÃO]
+Disciplina (sigla): [LEA / MEI / LSC / ESE / EMA / FSI / TrnsfCal / MqnsTerm — OBRIGATÓRIO]
+Número da avaliação: [NN — padrão: XX (ajustar depois no main.tex)]
+Objeto da análise: [ARTIGO / ESTUDO DE CASO — padrão: IDENTIFICAR PELOS ARQUIVOS (um artigo → ARTIGO; relato de fato + documento correlato → ESTUDO DE CASO)]
+Curso e turma/período: [DESCREVER — padrão: NÃO INFORMAR (omitido nos scripts)]
+Arquivo principal (exatamente um): [NOME DO ARQUIVO — o artigo (ARTIGO) ou a reportagem, matéria ou relato do fato (ESTUDO DE CASO) — padrão: IDENTIFICAR ENTRE OS PDFs ANEXADOS]
+Identificação do arquivo principal: [TÍTULO COMPLETO DO ARTIGO, OU VEÍCULO E DATA DA REPORTAGEM — padrão: IDENTIFICAR NO ARQUIVO]
+Referências correlatas (somente ESTUDO DE CASO, uma ou mais): [NOME DO ARQUIVO — título, número e versão/ano de cada documento — padrão: OS DEMAIS PDFs ANEXADOS, IDENTIFICADOS NOS ARQUIVOS]
+Itens, capítulos ou seções relevantes da referência (somente ESTUDO DE CASO): [LISTAR — padrão: PROPOR NA FASE 1]
+Método de análise de causas (somente ESTUDO DE CASO): [LIVRE / ÁRVORE DE CAUSAS / 5 PORQUÊS / ISHIKAWA — padrão: LIVRE]
+Questão contrafactual (somente ESTUDO DE CASO): [SIM / NÃO — padrão: SIM]
+Conteúdos ou enfoques obrigatórios: [DESCREVER — padrão: DEFINIR A PARTIR DO ARQUIVO PRINCIPAL]
+Conteúdos que não serão avaliados: [DESCREVER — padrão: NENHUM]
+Entregáveis: [RELATÓRIO + APRESENTAÇÃO / SOMENTE RELATÓRIO — padrão: RELATÓRIO + APRESENTAÇÃO]
+Pesos (somente RELATÓRIO + APRESENTAÇÃO): [PERCENTUAIS — padrão: RELATÓRIO 70 % E APRESENTAÇÃO 30 %]
+Modalidade: [INDIVIDUAL / EM GRUPO — padrão: EM GRUPO]
+Integrantes por grupo (somente EM GRUPO): [QUANTIDADE — padrão: ATÉ 4]
+Nota da apresentação em grupo (somente EM GRUPO com apresentação): [IGUAL PARA TODOS / PARTE INDIVIDUAL NA ARGUIÇÃO — padrão: IGUAL PARA TODOS]
+Prazo de entrega: [DATA E HORÁRIO — padrão: A DEFINIR]
+Data das apresentações (somente com apresentação): [DATA — padrão: A DEFINIR]
+Tempo de apresentação (somente com apresentação): [MINUTOS — padrão: 15 MINUTOS]
+Tempo de perguntas (somente com apresentação): [MINUTOS / NÃO HAVERÁ — padrão: 5 MINUTOS]
+Limite de slides (somente com apresentação): [NÚMERO — padrão: 10, incluindo a capa]
+Convenção de nome dos arquivos: [EX.: SIGLA_Av01_Relatorio_Grupo03.pdf — padrão: SIGLA_AvNN_Relatorio_GrupoXX.pdf e SIGLA_AvNN_Apresentacao_GrupoXX.pdf (em INDIVIDUAL, NomeSobrenome no lugar de GrupoXX)]
+Arquivo ausente, corrompido ou em formato incorreto: [CONSEQUÊNCIA — padrão: REGISTRAR E DECIDIR CASO A CASO]
+Uso de IA pelos estudantes e similaridade: [REGRA DEFINIDA PELO PROFESSOR — padrão: NÃO INCLUIR]
+Fontes externas pelos estudantes: [PERMITIDAS COM CITAÇÃO ABNT / NÃO PERMITIDAS — padrão: PERMITIDAS COM CITAÇÃO ABNT]
+Observações adicionais: [DESCREVER — padrão: NENHUMA]

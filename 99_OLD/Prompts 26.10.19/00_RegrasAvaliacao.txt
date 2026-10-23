@@ -1,0 +1,82 @@
+# REGRAS DE AVALIAÇÃO COM RUBRICA (v3)
+
+Use este arquivo junto com 00_NucleoComum.txt e com um módulo de avaliação (PromptAvaliacaoAnalise ou PromptExperimentos). Ele contém as regras compartilhadas pelas avaliações: entrega, níveis de desempenho, rubricas, formulário de correção e correção assistida por IA. As avaliações geram dois scripts para Content.tex: um para os estudantes e outro reservado ao professor.
+
+# [R-AV-ADMIN] REGRAS ADMINISTRATIVAS FIXAS
+
+1. A entrega é feita por arquivo PDF no Google Classroom.
+2. Entrega após o prazo resulta em nota final `0,0`, sem desconto gradual. Essa regra aparece de forma destacada no documento dos estudantes e no do professor, em parágrafo próprio, por exemplo com `\noindent\fbox{\parbox{0.95\linewidth}{...}}`.
+3. Para arquivo ausente, corrompido, ilegível ou em formato incorreto, registre a ocorrência e aplique apenas a consequência definida nos parâmetros. Não invente penalidades.
+4. Uso de IA pelos estudantes e verificação de similaridade: siga exclusivamente o parâmetro correspondente do módulo. Se ele indicar "NÃO INCLUIR", não trate do assunto.
+5. Penalidades administrativas ficam sempre separadas dos critérios acadêmicos.
+
+# [R-AV-NIVEIS] NÍVEIS DE DESEMPENHO
+
+Cada critério recebe exatamente um destes níveis:
+
+| Nível | Lógica geral (adapte ao critério com descritores observáveis) |
+|-------|---------------------------------------------------------------|
+| 0 %   | ausente, incompatível com a fonte ou com os dados, essencialmente incorreto ou sem evidência identificável |
+| 25 %  | superficial, fragmentado ou predominantemente incorreto, com evidências insuficientes |
+| 50 %  | parcialmente correto, mas incompleto, pouco articulado ou com falhas relevantes |
+| 75 %  | correto e fundamentado, com pequenas omissões ou limitações |
+| 100 % | completo, preciso, crítico e sustentado por evidências pertinentes |
+
+Pontuação do critério = valor máximo × percentual escolhido. Não use níveis intermediários. Evite descritores vagos como "bom" ou "adequado" sem dizer qual evidência os caracteriza.
+
+# [R-AV-RUBRICA] LAYOUT DA RUBRICA
+
+Use uma tabela por critério, com duas colunas (Nível | Descritor) e cinco linhas, precedida de uma linha de identificação. Esse formato é legível em A4 e fácil de usar na correção assistida por IA.
+
+```
+\begin{table}[htpb]
+\centering
+\footnotesize
+\begin{tabular}{|>{\centering\arraybackslash}m{1.6cm}|>{\raggedright\arraybackslash}m{13cm}|}
+\hline
+\multicolumn{2}{|l|}{\textbf{REL-01 — Título do critério (valor máximo: 2{,}0 pontos)}} \\ \hline
+\textbf{Nível} & \textbf{Descritor observável} \\ \hline
+0\,\%   & ... \\ \hline
+25\,\%  & ... \\ \hline
+50\,\%  & ... \\ \hline
+75\,\%  & ... \\ \hline
+100\,\% & ... \\ \hline
+\end{tabular}
+\caption{Rubrica do critério REL-01.}
+\label{tab_RubricaREL01}
+\end{table}
+```
+
+# [R-AV-IDENT] IDENTIFICADORES E CONSISTÊNCIA
+
+1. Critérios do relatório: `REL-01`, `REL-02`, ... Critérios da apresentação, quando houver: `APR-01`, `APR-02`, ...
+2. Identificadores, títulos, descrições e pesos são idênticos nos documentos do estudante e do professor.
+3. Os pesos de cada grupo de critérios somam exatamente `10{,}0` na escala interna.
+4. Cada critério tem descritores para os cinco níveis de [R-AV-NIVEIS].
+
+# [R-AV-FORMULARIO] FORMULÁRIO DE CORREÇÃO
+
+Inclua, no documento do professor, campos para: identificação do estudante ou grupo; integrantes; data e horário da entrega; confirmação de entrega no prazo; nível e nota de cada critério; evidência localizada (página, seção, tabela ou figura); justificativa; pontos fortes; falhas, omissões e inconsistências; recomendações; notas brutas, notas convertidas e nota final.
+
+# [R-AV-CORRECAO-IA] CORREÇÃO ASSISTIDA POR IA
+
+Inclua, no documento do professor, uma seção com instruções operacionais para fornecer a uma IA as referências, os documentos da avaliação e o material do estudante. Determine que a IA avaliadora deve:
+
+1. avaliar cada critério separadamente;
+2. escolher somente 0 %, 25 %, 50 %, 75 % ou 100 %;
+3. citar a evidência e sua localização no material submetido;
+4. conferir afirmações, cálculos, unidades e coerência interna com as referências e os dados;
+5. diferenciar ausência, erro factual, erro de cálculo, análise superficial, divergência justificável e interpretação alternativa válida;
+6. escrever "não identificado no material submetido" quando faltar evidência;
+7. não inventar conteúdo ausente;
+8. calcular as notas conforme os pesos;
+9. registrar incertezas que exijam decisão humana;
+10. deixar claro que a decisão final é do professor.
+
+# [R-AV-VERIFICACAO] VERIFICAÇÃO COMUM ÀS AVALIAÇÕES
+
+1. Cada grupo de critérios soma `10{,}0` e todos os critérios têm os cinco níveis.
+2. Identificadores, títulos, descrições e pesos são idênticos nos dois scripts.
+3. As conversões de nota não ultrapassam os máximos definidos.
+4. A regra de nota zero por atraso aparece, em destaque, nos dois scripts.
+5. As penalidades administrativas estão separadas dos critérios acadêmicos.

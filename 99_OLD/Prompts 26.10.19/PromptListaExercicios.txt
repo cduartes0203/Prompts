@@ -1,0 +1,202 @@
+# MÓDULO: LISTA DE EXERCÍCIOS COM GABARITO A PARTIR DE DOCUMENTOS DE REFERÊNCIA (v3)
+
+Use este módulo junto com o arquivo 00_NucleoComum.txt. O núcleo contém as regras gerais de fases, formato de saída, fidelidade, números, equações, tabelas, figuras, template de documentos e verificação. Este módulo acrescenta o que é específico desta tarefa e, nos pontos indicados, substitui regras do núcleo.
+
+Finalidade: elaborar uma lista de exercícios em documento (Content.tex) a partir de apresentações, livros, apostilas ou listas existentes em PDF, com exercícios das fontes, adaptados ou elaborados com base nelas, e um gabarito com as resoluções verificadas. São gerados dois scripts para Content.tex: a lista dos estudantes e o gabarito reservado ao professor, salvo outra opção no parâmetro "Gabarito".
+
+Para exercícios resolvidos no quadro durante a aula, em slides, use o PromptAula. Para transcrever sem alterações uma lista que já existe, use o PromptCopiar (destino DOCUMENTO). Para avaliações com rubrica, use o PromptAvaliacaoAnalise ou o PromptExperimentos.
+
+Os parâmetros desta tarefa ficam na última seção deste arquivo ("PARÂMETROS"). Preencha somente ali.
+
+# 1. ORIENTAÇÕES SOBRE AS FONTES
+
+1. APRESENTAÇÃO: slides em PDF. Conceitos, equações, gráficos, circuitos, diagramas e exemplos visuais podem fundamentar exercícios.
+2. LIVRO: anexe preferencialmente só os capítulos necessários. Exercícios de fim de capítulo, exemplos resolvidos e tabelas de propriedades são as bases preferenciais. Quando o escopo não estiver definido, proponha-o na Fase 1 a partir do sumário e dos títulos das seções. Registre a página impressa e a página do PDF quando forem diferentes.
+3. LISTA EXISTENTE: listas, provas ou apostilas de exercícios em PDF podem fornecer exercícios para seleção, adaptação ou inspiração. As respostas que constarem delas devem ser conferidas (seção 6 deste módulo).
+4. Com várias fontes, escolha uma notação principal ([R-IDIOMA], item 7) e use-a em todos os enunciados e no gabarito.
+5. Se alguma página do escopo não puder ser lida, informe-a na Fase 1. Não complete o conteúdo por memória.
+
+# 2. ORIGEM DOS EXERCÍCIOS
+
+1. DAS FONTES: o exercício é reproduzido da fonte. Preserve dados, valores, condições e grandezas solicitadas. Permitem-se somente ajustes de redação, de notação (para a notação principal) e de formatação, além da tradução quando a fonte não estiver em português. Rastreabilidade: `% Fonte: Arquivo.pdf, p. X, exercício Y`.
+2. ADAPTADO: o exercício parte de um exercício ou exemplo da fonte e altera dados, contexto, grandeza solicitada ou quantidade de itens, preservando a lógica de resolução. Rastreabilidade: `% Adaptado de: Arquivo.pdf, p. X, exercício Y — alterações: <lista curta>`.
+3. ELABORADO: o exercício é novo, mas os conceitos, modelos e equações necessários estão nas fontes. Rastreabilidade: `% Exercício elaborado a partir de: Arquivo.pdf, p. X`.
+4. Dados de enunciado (substitui [R-FIDELIDADE], item 1, somente neste ponto): nos exercícios ADAPTADOS e ELABORADOS, você pode propor valores numéricos de entrada, desde que sejam fisicamente plausíveis, compatíveis com as faixas e as aplicações descritas nas fontes e coerentes entre si. Continua proibido inventar propriedades de materiais e fluidos, constantes, coeficientes empíricos, correlações, limites normativos ou especificações de equipamentos: esses valores vêm das fontes (com a tabela de origem) ou, se o conteúdo externo for permitido, de referências verificáveis.
+5. Os enunciados não citam no texto visível de qual fonte vieram, salvo indicação diferente nas observações adicionais. A rastreabilidade fica nos comentários LaTeX.
+
+# 3. TIPOS DE QUESTÃO E NÍVEIS DE DIFICULDADE
+
+## 3.1 Tipos
+
+1. CONCEITUAL: explicação, comparação, justificativa ou interpretação física, sem cálculo ou com cálculo mínimo.
+2. NUMÉRICA: cálculo de uma ou mais grandezas a partir de dados fornecidos.
+3. ANÁLISE DE GRÁFICO OU FIGURA: leitura, interpretação ou extração de parâmetros de gráficos, circuitos, diagramas ou esquemas.
+4. PROJETO OU DIMENSIONAMENTO: escolha ou cálculo de parâmetros para atender a requisitos, com resposta que pode não ser única.
+5. DEDUÇÃO: obtenção ou demonstração de uma relação a partir de hipóteses declaradas.
+6. MÚLTIPLA ESCOLHA: enunciado com alternativas, exatamente uma correta.
+
+## 3.2 Níveis de dificuldade
+
+| Nível         | Níveis de Bloom predominantes  | Características |
+|---------------|--------------------------------|-----------------|
+| BÁSICO        | lembrar, compreender, aplicar  | um conceito ou uma equação, aplicação direta, poucas etapas |
+| INTERMEDIÁRIO | aplicar, analisar              | várias etapas, escolha do modelo adequado, interpretação do resultado |
+| AVANÇADO      | analisar, avaliar, criar       | integração de conceitos, hipóteses a declarar, análise de validade, projeto ou dedução |
+
+A dificuldade vem da exigência técnica, nunca de enunciados confusos, de dados escondidos ou de pegadinhas.
+
+# 4. REGRAS DE ELABORAÇÃO DOS ENUNCIADOS
+
+1. Cada enunciado é autocontido: traz todos os dados necessários, com unidades, e declara explicitamente a grandeza solicitada.
+2. Hipóteses de modelagem que o estudante não pode deduzir sozinho (regime permanente, componentes ideais, propriedades constantes, perdas desprezíveis, convenção de sinais adotada) aparecem no enunciado. Nos exercícios AVANÇADOS, a declaração de hipóteses pode ser exigida do estudante, desde que isso esteja dito no enunciado.
+3. Não há ambiguidade de referência, sentido, polaridade, valor eficaz ou de pico, pressão absoluta ou manométrica, estado termodinâmico ou domínio (tempo, Laplace ou frequência).
+4. Dados supérfluos só são incluídos intencionalmente, como parte do objetivo do exercício, e isso é registrado no gabarito.
+5. Propriedades tabeladas: siga o parâmetro "Tabelas e dados de propriedades". Quando os valores forem fornecidos no enunciado, informe-os com a precisão da tabela de origem.
+6. Itens de um mesmo exercício usam `\item[a)]`, `\item[b)]`, ... e seguem dificuldade crescente. Quando um item depende do resultado de outro, isso deve ficar claro.
+7. Enunciados não trazem dicas, respostas parciais ou o caminho da resolução, salvo nos exercícios BÁSICOS em que a orientação faça parte do objetivo didático.
+8. Contextualize em situações de engenharia da disciplina (medição, projeto, operação, laboratório, instalação, segurança) sempre que isso não alongar o enunciado sem necessidade.
+9. MÚLTIPLA ESCOLHA: alternativas `\item[(A)]`, `\item[(B)]`, ...; exatamente uma correta; distratores plausíveis, preferencialmente construídos a partir de erros comuns (sinal, unidade, valor eficaz trocado pelo de pico, fórmula aplicada fora da validade); alternativas numéricas em ordem crescente; sem "todas as anteriores" ou "nenhuma das anteriores". A posição da alternativa correta varia ao longo da lista.
+10. Figuras necessárias ao enunciado seguem [R-FIGURAS] e [R-FIGURAS-ORIGEM]. No template de documentos, use somente TikZ para desenhos em código (sem PGFPlots e sem circuitikz). Gráficos de funções podem ser desenhados com `\draw plot` do TikZ.
+
+# 5. MODELO DE CÓDIGO
+
+## 5.1 Exercício na lista dos estudantes
+
+```
+% Exercício N — Tipo: NUMÉRICA; Nível: INTERMEDIÁRIO; Origem: ADAPTADO
+% Adaptado de: Arquivo.pdf, p. X, exercício Y — alterações: valores de R1 e da tensão
+\noindent\textbf{Exercício N.} Texto do enunciado, com todos os dados e unidades, por exemplo $V_s=12{,}0\,\mathrm{V}$ e $R_1=4{,}7\,\mathrm{k\Omega}$. Determine:
+\begin{enumerate}
+    \item[a)] ...;
+    \item[b)] ....
+\end{enumerate}
+\medskip
+```
+
+1. A numeração dos exercícios é contínua em toda a lista, mesmo com agrupamento por seções.
+2. Agrupamentos por conteúdo ou por nível usam `\section*{}` ([R-TEMPLATE-DOC], item 3).
+3. Espaço para resolução (somente se o parâmetro for SIM): `\vspace{<altura>}` após cada exercício, com altura proporcional à resolução esperada, sem caixas ou linhas desenhadas.
+4. Respostas finais (somente se o parâmetro não for NÃO):
+   - AO FINAL DA LISTA: `\section*{Respostas}`, depois de todos os exercícios, com a resposta de cada item no formato `\textbf{N.} a) ...; b) ...`;
+   - JUNTO A CADA EXERCÍCIO: logo após o exercício, `\noindent{\footnotesize\textit{Resposta:} a) ...; b) ...}`.
+   Respostas finais trazem somente o resultado com unidade, sem desenvolvimento. Em questões CONCEITUAIS, DEDUÇÃO e PROJETO, indique "ver gabarito" ou uma resposta-síntese de uma linha.
+
+## 5.2 Resolução no gabarito
+
+```
+% Resolução do Exercício N
+\subsection*{Exercício N}
+\noindent\textbf{Dados:} ... \quad \textbf{Pede-se:} ...
+
+\noindent\textbf{Hipóteses:} ...
+
+\noindent\textbf{Modelo:} ...
+\[ ... \]
+
+\noindent\textbf{Desenvolvimento:} ...
+
+\noindent\textbf{Resultado:} ... \quad \textbf{Verificação:} ...
+```
+
+O detalhamento segue o parâmetro "Detalhamento do gabarito":
+
+1. COMPLETO: dados, grandeza solicitada, hipóteses, modelo ou equação aplicável (com a página da fonte em comentário), desenvolvimento algébrico, substituição numérica, resultado com unidade e algarismos significativos coerentes, verificação (dimensional, ordem de grandeza ou caso limite) e interpretação física breve.
+2. RESUMIDO: modelo ou equação aplicável, etapas principais e resultado com unidade.
+3. SOMENTE RESPOSTAS: resultado de cada item, com unidade.
+
+# 6. VERIFICAÇÃO DAS RESOLUÇÕES
+
+1. Resolva todos os exercícios antes de apresentá-los. Um exercício só entra na lista se a resolução estiver verificada.
+2. Confira coerência dimensional, ordem de grandeza, sinais e plausibilidade física de cada resultado. Valores fisicamente impossíveis ou fora da validade do modelo (eficiência acima de 100 %, temperatura abaixo de 0 K, corrente acima da capacidade informada, regime fora da faixa da correlação) obrigam a rever os dados.
+3. Recalcule as respostas que constarem das fontes. Se a resposta da fonte divergir do seu cálculo, registre a divergência na Fase 1, com os dois valores e a provável causa, e siga a decisão aprovada. Não corrija silenciosamente ([R-FIDELIDADE], item 3).
+4. Resolução que não consta da fonte: registre `% Resolução elaborada e verificada; não consta na fonte`.
+5. Questões de PROJETO com resposta não única: o gabarito apresenta uma solução de referência e os critérios que tornam outras soluções aceitáveis.
+6. MÚLTIPLA ESCOLHA: o gabarito justifica a alternativa correta e indica o erro que leva a cada distrator.
+7. As respostas finais da lista e os resultados do gabarito são idênticos, inclusive em arredondamento e unidade.
+
+# 7. FASE 1 — ANÁLISE E PLANEJAMENTO
+
+Apresente:
+
+1. Parâmetros assumidos: valores padrão aplicados e campos ausentes.
+2. Identificação de cada fonte: arquivo, tipo (apresentação, livro ou lista existente), título, autores, edição (quando identificável), idioma e páginas, capítulos ou seções relevantes. Informe páginas que não puderam ser lidas.
+3. Mapa das fontes, em tabela com as colunas: arquivo; página do PDF (e página impressa, quando diferente); conteúdo (conceito, equação, tabela de propriedades, exemplo resolvido, exercício proposto); possível uso (exercício DAS FONTES, base para ADAPTADO, fundamento para ELABORADO, dado de propriedade, não utilizado).
+4. Problemas encontrados nos exercícios e exemplos das fontes: dados ausentes, enunciados ambíguos, respostas divergentes do recálculo (seção 6, item 3), notação conflitante.
+5. Planejamento da lista, em tabela com as colunas: nº; conteúdo; objetivo de aprendizagem (verbo observável); tipo; nível; origem (DAS FONTES, ADAPTADO ou ELABORADO); fonte e páginas; dados principais propostos (somente ADAPTADO e ELABORADO); figura (nenhuma, RECORTE, CÓDIGO ou GERAR); resposta final prevista.
+6. Distribuição obtida por nível, por tipo e por origem, comparada com os parâmetros. Justifique qualquer desvio.
+7. Cobertura: conteúdos obrigatórios e objetivos atendidos por quais exercícios; conteúdos do escopo que ficaram sem exercício.
+8. Lista de recortes ([R-FIGURAS-ORIGEM], item 1), quando houver.
+9. Divisão prevista em partes ([R-CONTINUACAO]).
+10. Perguntas objetivas sobre decisões que não possam ser tomadas com segurança.
+
+Encerre a resposta e aguarde a aprovação.
+
+# 8. FASE 2 — SCRIPT 1: LISTA DESTINADA AOS ESTUDANTES
+
+Resposta própria ([R-SAIDA]). Primeira linha de conteúdo após o cabeçalho: `% SCRIPT 1 — LISTA DE EXERCÍCIOS DESTINADA AOS ESTUDANTES`.
+
+Configuração sugerida no cabeçalho: `\def\TipoDocumento{OUTRO}`, `\def\RotuloDocumentoPersonalizado{Lista de Exercícios}`, `\def\DocNum{NN}`, `\def\DocDescricao{<tema da lista>}` e `\def\DocSubtitulo{}`.
+
+Conteúdo, nesta ordem:
+
+1. Orientações (somente se o parâmetro "Orientações aos estudantes" não for NENHUMA): caixa de destaque ([R-TEMPLATE-DOC], item 7) com o texto informado.
+2. Formulário de apoio (somente se o parâmetro for SIM): equações e constantes necessárias, sem indicar em qual exercício cada uma é usada.
+3. Exercícios, conforme a organização definida no parâmetro e o modelo da seção 5.1.
+4. Respostas finais, conforme o parâmetro (seção 5.1, item 4).
+
+Se o parâmetro "Gabarito" for NO MESMO DOCUMENTO, o gabarito começa depois das respostas com `\newpage` e `\section*{Gabarito}` e segue a seção 9, no mesmo produto e com a divisão em partes de [R-CONTINUACAO].
+
+# 9. FASE 2 — SCRIPT 2: GABARITO RESERVADO AO PROFESSOR
+
+Somente se o parâmetro "Gabarito" for SEPARADO. Resposta própria, depois do Script 1. Primeira linha de conteúdo após o cabeçalho: `% SCRIPT 2 — GABARITO RESERVADO AO PROFESSOR`.
+
+Configuração sugerida no cabeçalho: `\def\TipoDocumento{OUTRO}`, `\def\RotuloDocumentoPersonalizado{Gabarito}`, `\def\DocNum{NN}` (o mesmo número da lista), `\def\DocDescricao{<tema da lista>}` e `\def\DocSubtitulo{Uso exclusivo do professor}`.
+
+Conteúdo:
+
+1. Tabela-resumo ([R-TABELAS]), com as colunas: nº; conteúdo; tipo; nível; origem; resposta final. Se a tabela ultrapassar a largura útil, divida-a conforme [R-TABELAS-VERIF], item 7.
+2. Resoluções de todos os exercícios, na mesma numeração da lista, conforme o modelo da seção 5.2 e o detalhamento definido no parâmetro. Os enunciados não são repetidos.
+3. Para cada exercício INTERMEDIÁRIO ou AVANÇADO (e para todos, se o detalhamento for COMPLETO): erros comuns esperados e, quando houver, interpretações alternativas aceitáveis.
+4. Registro dos dados supérfluos intencionais e das divergências com as fontes aprovadas na Fase 1.
+
+# 10. VERIFICAÇÃO ESPECÍFICA DESTE MÓDULO
+
+1. A quantidade de exercícios e as distribuições por nível, tipo e origem correspondem ao planejamento aprovado.
+2. Todo exercício tem comentário de rastreabilidade compatível com a sua origem (seção 2).
+3. Nenhuma propriedade, constante, correlação ou limite normativo foi inventado (seção 2, item 4).
+4. Todos os enunciados são autocontidos, com unidades e grandeza solicitada explícita (seção 4).
+5. Todas as resoluções foram verificadas (seção 6) e as respostas da lista coincidem com o gabarito.
+6. A numeração dos exercícios e dos itens é contínua e idêntica na lista e no gabarito.
+7. MÚLTIPLA ESCOLHA: exatamente uma alternativa correta e distratores justificados no gabarito.
+8. Não há respostas, dicas ou resoluções na lista além do que os parâmetros permitem.
+9. Figuras desenhadas em código usam somente TikZ.
+
+# PARÂMETROS (preencha somente aqui — última seção do arquivo)
+
+Campos deixados como estão (com colchetes) assumem o padrão indicado. Campos marcados OBRIGATÓRIO não têm padrão e precisam ser preenchidos. Para preencher, substitua o conteúdo entre colchetes pelo valor desejado.
+
+PULAR_FASE_1: [SIM / NÃO — padrão: NÃO]
+Disciplina (sigla): [LEA / MEI / LSC / ESE / EMA / FSI / TrnsfCal / MqnsTerm — OBRIGATÓRIO]
+Número da lista: [NN — padrão: XX (ajustar depois no main.tex)]
+Tema ou conteúdos da lista: [DESCREVER — padrão: IDENTIFICAR NAS FONTES]
+Arquivos de referência: [LISTAR OS PDFs; para livros, título, autores e edição — padrão: TODOS OS PDFs ANEXADOS, IDENTIFICADOS NOS ARQUIVOS]
+Escopo nas fontes: [PÁGINAS DO PDF POR ARQUIVO; para livros, capítulos, seções e páginas impressas — padrão: TODAS as páginas das apresentações e listas; PROPOR NA FASE 1 para livros]
+Conteúdos obrigatórios: [LISTAR — padrão: NENHUM ALÉM DO TEMA]
+Conteúdos excluídos: [LISTAR — padrão: NENHUM]
+Perfil da turma: [PERÍODO, FORMAÇÃO PRÉVIA, DIFICULDADES CONHECIDAS — padrão: GRADUAÇÃO EM ENGENHARIA, NO PERÍODO USUAL DA DISCIPLINA, SEM DIFICULDADES ESPECÍFICAS INFORMADAS]
+Objetivos específicos de aprendizagem: [DESCREVER — padrão: DEFINIR NA FASE 1]
+Quantidade de exercícios: [NÚMERO — padrão: 10]
+Origem dos exercícios: [DAS FONTES / ADAPTADOS / ELABORADOS / COMBINAÇÃO, com proporção — padrão: COMBINAÇÃO, PROPOR NA FASE 1]
+Distribuição por nível: [PERCENTUAIS DE BÁSICO / INTERMEDIÁRIO / AVANÇADO — padrão: 30 % BÁSICO, 50 % INTERMEDIÁRIO, 20 % AVANÇADO]
+Tipos de questão: [CONCEITUAL / NUMÉRICA / ANÁLISE DE GRÁFICO OU FIGURA / PROJETO OU DIMENSIONAMENTO / DEDUÇÃO / MÚLTIPLA ESCOLHA, com quantidades — padrão: PREDOMINANTEMENTE NUMÉRICA, COM QUESTÕES CONCEITUAIS; PROPOR NA FASE 1]
+Alternativas por questão (somente MÚLTIPLA ESCOLHA): [NÚMERO — padrão: 5]
+Organização da lista: [POR CONTEÚDO / POR NÍVEL / SEQUÊNCIA DAS FONTES — padrão: POR CONTEÚDO, EM DIFICULDADE CRESCENTE DENTRO DE CADA CONTEÚDO]
+Tabelas e dados de propriedades: [FORNECER NO ENUNCIADO / CONSULTAR TABELAS DAS FONTES, indicando quais — padrão: FORNECER NO ENUNCIADO os valores necessários, com a tabela de origem em comentário]
+Formulário de apoio na lista: [SIM / NÃO — padrão: NÃO]
+Respostas finais na lista: [NÃO / AO FINAL DA LISTA / JUNTO A CADA EXERCÍCIO — padrão: AO FINAL DA LISTA]
+Espaço para resolução: [SIM / NÃO — padrão: NÃO]
+Gabarito: [SEPARADO / NO MESMO DOCUMENTO / NÃO GERAR — padrão: SEPARADO]
+Detalhamento do gabarito (somente se houver gabarito): [COMPLETO / RESUMIDO / SOMENTE RESPOSTAS — padrão: COMPLETO]
+Orientações aos estudantes: [TEXTO, ex.: prazo, forma de entrega, se vale nota — padrão: NENHUMA]
+Conteúdo externo permitido: [SIM / NÃO — padrão: NÃO]
+Observações adicionais: [DESCREVER — padrão: NENHUMA]

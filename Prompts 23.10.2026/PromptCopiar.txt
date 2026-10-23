@@ -1,0 +1,203 @@
+# MÓDULO: CÓPIA DIRETA DE SLIDES E DOCUMENTOS (v3)
+
+Use este módulo junto com o arquivo 00_NucleoComum.txt. O núcleo contém as regras gerais de fases, formato de saída, fidelidade, tabelas, figuras, templates e verificação. Este módulo acrescenta o que é específico desta tarefa e, nos pontos indicados, substitui regras do núcleo.
+
+Finalidade: reproduzir em LaTeX, de forma exata e integral, o conteúdo de um único PDF, na mesma ordem e com a mesma estrutura, sem resumir, ampliar, reorganizar ou corrigir. Há dois destinos:
+
+- SLIDES: um PDF de apresentação é reproduzido em Presentation.tex, página por página, um frame por página.
+- DOCUMENTO: um PDF de texto (apostila, norma, manual, artigo, lista de exercícios, ofício, procedimento) é transcrito em Content.tex, palavra por palavra.
+
+Para produzir uma aula nova a partir das fontes, use o PromptAula.
+
+Os parâmetros desta tarefa ficam na última seção deste arquivo ("PARÂMETROS"). Preencha somente ali.
+
+# 1. DEFINIÇÃO DE CÓPIA DIRETA
+
+1. Correspondência com a fonte:
+   - SLIDES: cada página selecionada corresponde a exatamente um frame, na mesma ordem.
+   - DOCUMENTO: todo o conteúdo textual das páginas selecionadas é transcrito, palavra por palavra, na ordem de leitura; cada parágrafo da fonte corresponde a um parágrafo da transcrição.
+2. Preserve: títulos e subtítulos (com a numeração original), itens e subitens (com a mesma ordem, os mesmos marcadores e a mesma hierarquia), parágrafos, destaques (negrito, itálico, sublinhado, sobrescrito, subscrito), citações e chamadas de referência da fonte, notas de rodapé, equações e sua numeração, símbolos, valores, unidades, algarismos significativos, tabelas, quadros, legendas, exemplos, exercícios, perguntas, respostas, avisos, observações, anexos e referências bibliográficas.
+3. Preserve a forma: texto corrido continua corrido, listas continuam listas, listas numeradas mantêm a numeração e os rótulos (1., a), I., i.), blocos e quadros destacados continuam destacados.
+4. Não resuma, não amplie, não contextualize, não complemente, não comente, não padronize e não reorganize.
+5. Exercícios, exemplos, perguntas e respostas são reproduzidos exatamente onde aparecem. Não acrescente resolução quando a fonte trouxer só o enunciado e não remova resolução presente na fonte.
+6. Erros da fonte (ortografia, digitação, tradução, concordância, cálculo ou notação) são sempre listados na Fase 1, mas permanecem como estão. Só são corrigidos os que o professor aprovar, cada um com o comentário `% CORREÇÃO APROVADA: "<original>" → "<corrigido>"`. Erros mantidos podem receber o comentário `% [sic] <descrição>`, nunca uma marcação visível no texto.
+7. Alterações permitidas: somente as decorrentes da conversão para LaTeX (seções 6 e 7 deste módulo) e, se ativada, a tradução (seção 4).
+
+# 2. ESCOPO
+
+1. Considere somente o PDF anexado. Não use internet, conhecimento próprio nem conteúdo de conversas anteriores para completar, atualizar ou interpretar o conteúdo.
+2. Inclua todas as páginas do intervalo (objetivos, sumário, transições, exemplos, exercícios, sínteses, notas, anexos, apêndices, glossários e referências), inclusive páginas com pouco texto ou só com imagem, salvo os itens omitidos pelos parâmetros ou pelo professor.
+3. SLIDES: capa e slide de encerramento da fonte seguem o parâmetro. No padrão OMITIR, não geram frames. Registre essas páginas como omitidas na Fase 1.
+4. DOCUMENTO:
+   - Elementos de paginação (cabeçalhos e rodapés repetidos, números de página, marcas d'água) seguem o parâmetro; no padrão OMITIR, registre-os como omitidos na Fase 1.
+   - O título e a identificação próprios do documento-fonte são conteúdo e seguem o parâmetro; no padrão TRANSCREVER, aparecem no início do texto, com o mesmo destaque relativo da fonte.
+   - Se o PDF reunir vários documentos, transcreva todos, na ordem do arquivo, e identifique o início de cada um com `% DOCUMENTO k/M: <título ou identificação>`. No padrão de separação, use `\clearpage` antes de cada documento a partir do segundo.
+
+# 3. LEITURA DA FONTE
+
+1. Se o PDF não tiver camada de texto (arquivo escaneado), transcreva a partir da imagem das páginas e informe essa condição na Fase 1.
+2. Palavras ou trechos que não puderem ser lidos com segurança não são completados por suposição ([R-FIDELIDADE], item 7). Liste-os na Fase 1 com página e contexto. Na Fase 2, se o professor não fornecer versão legível, use no ponto exato a marcação visível `[ilegível]` ou `[leitura incerta: <melhor leitura>]`, conforme aprovado.
+3. Texto manuscrito, anotações à mão e marcações de terceiros (grifos, comentários) só são transcritos se o professor aprovar na Fase 1.
+
+# 4. TRADUÇÃO E IDIOMA (substitui [R-IDIOMA], itens 1 a 3 e 7)
+
+1. Sem tradução, o texto permanece no idioma original da fonte.
+2. Com tradução, traduza de forma direta, frase por frase, preservando significado técnico, estrutura das frases, títulos, hierarquia, símbolos, variáveis, números, unidades, sinais, índices, expoentes, rótulos de figuras, legendas e cabeçalhos de tabelas.
+3. Não simplifique, explique ou amplie durante a tradução. Quando não houver tradução técnica consolidada, mantenha o termo original entre parênteses.
+4. Títulos de obras citadas, nomes próprios, siglas e referências bibliográficas não são traduzidos.
+5. Preserve a notação da fonte, mesmo que seja inconsistente entre trechos. Não unifique símbolos.
+
+# 5. NÚMEROS E EQUAÇÕES (substitui [R-NUMEROS], itens 2 a 7, e [R-EQUACOES], itens 2 a 4)
+
+1. Transcreva números, unidades e símbolos exatamente como na fonte. Separador decimal: se a fonte usar vírgula, ou se houver tradução, use `{,}` no modo matemático (por exemplo, `$7{,}5$`), sem alterar o valor; se a fonte usar ponto e não houver tradução, mantenha o ponto.
+2. Não converta unidades, não arredonde, não acrescente nem retire algarismos significativos e não acrescente espaços ou unidades ausentes na fonte.
+3. Não defina variáveis, não acrescente hipóteses e não confira nem corrija dimensões. Divergências aparentes são registradas na Fase 1.
+4. Equações com número na fonte: use `\tag{...}` com o mesmo rótulo, por exemplo `\tag{2.3}`. Equações sem número permanecem sem número.
+
+# 6. REGRAS DO DESTINO SLIDES
+
+## 6.1 Layout dos slides com imagens
+
+1. Slide com texto e uma ou mais imagens: use duas colunas, com todo o texto (listas, equações e legendas que não façam parte da imagem) à esquerda e todas as imagens à direita.
+   ```
+   \begin{frame}{Título}
+       \begin{columns}[T,onlytextwidth]
+           \begin{column}{0.56\textwidth}
+               % conteúdo textual
+           \end{column}
+           \begin{column}{0.40\textwidth}
+               \centering
+               % ORIGEM: RECORTE — Arquivo.pdf, p. X, <região>
+               \includegraphics[width=\linewidth]{figs/N.png}
+           \end{column}
+       \end{columns}
+   \end{frame}
+   ```
+2. Várias imagens: empilhe-as ou organize-as em pequena grade dentro da coluna direita, na mesma ordem da fonte.
+3. Legenda existente na fonte: transcreva como texto comum logo abaixo da imagem, na coluna direita, sem `\caption{}`.
+4. Slide composto apenas por imagem (sem texto além do título): use uma única imagem centralizada, com altura limitada, por exemplo `height=0.7\textheight`.
+5. As larguras das colunas podem ser ajustadas, desde que as imagens fiquem à direita.
+
+## 6.2 Densidade
+
+1. A correspondência de uma página para um frame é obrigatória. Não divida nem junte frames.
+2. Ajustes tipográficos permitidos: quebras de linha, espaçamento entre itens, largura das colunas, tamanho da imagem e uso moderado de `\small` ou `\footnotesize`.
+3. Proibido: tudo o que consta de [R-TEMPLATE-SLIDES], item 7, além de sobreposição, fonte ilegível e omissão de conteúdo.
+4. Se um slide não couber legível (por exemplo, depois da tradução), registre na Fase 1 e aplique somente a solução aprovada pelo professor.
+
+# 7. REGRAS DO DESTINO DOCUMENTO
+
+## 7.1 Estrutura e texto
+
+1. Hierarquia de títulos: `\section*{}`, `\subsection*{}`, `\subsubsection*{}` e `\paragraph*{}`, conforme o nível na fonte. A numeração original é digitada no próprio título, por exemplo `\section*{2 Fundamentos}` e `\subsection*{2.1 Definições}`. Não use numeração automática.
+2. Parágrafos são separados por uma linha em branco. Mantenha recuos e alinhamentos especiais só quando tiverem função (citação longa em `quote`, texto centralizado em `center`).
+3. Listas: `itemize` para marcadores e `enumerate` para numeração. Quando o rótulo da fonte não for o padrão do LaTeX, informe-o em cada item, por exemplo `\item[a)]`, `\item[II.]`, `\item[--]`. Não use o pacote `enumitem`.
+4. Quadros, caixas de destaque e avisos: caixa de [R-TEMPLATE-DOC], item 7, preservando o título do quadro, se houver.
+5. Notas de rodapé: `\footnote{...}` no mesmo ponto da chamada na fonte. Se a numeração automática divergir da fonte, registre na Fase 1.
+6. Endereços eletrônicos: `\url{...}`.
+7. Escape os caracteres especiais do LaTeX que aparecem no texto: `\%`, `\&`, `\$`, `\#`, `\_`, `\{`, `\}`, `\textasciitilde{}`, `\textasciicircum{}` e `\textbackslash{}`. Aspas duplas: dois acentos graves para abrir e dois apóstrofos para fechar. Travessão `---` e meia-risca `--` conforme a fonte.
+8. Reúna as palavras partidas apenas pela hifenização de fim de linha do PDF (por exemplo, "transfor-" + "mação" → "transformação"). Hífens que fazem parte da palavra ("bem-estar", "NR-10") são mantidos.
+9. Quebras de linha e de página do PDF não são reproduzidas. Parágrafos que continuam na página seguinte são reunidos em um único parágrafo.
+10. Diagramação em várias colunas, boxes laterais e notas de margem: transcreva em uma única coluna, na ordem natural de leitura. Se a ordem for ambígua, registre na Fase 1.
+11. Cores, fontes e tamanhos de letra não são reproduzidos, exceto quando carregarem significado (por exemplo, texto em vermelho indicando proibição). Nesse caso, use `\textcolor{...}{...}` e registre na Fase 1.
+
+## 7.2 Tabelas (complementa [R-TABELAS])
+
+1. Toda tabela ou quadro em texto é transcrito como tabela LaTeX, com todas as linhas, colunas, cabeçalhos, notas e fontes da tabela.
+2. Legenda existente na fonte: texto integral em `\caption{}`, na mesma posição (acima ou abaixo) da fonte. Para manter a numeração original, redefina o número dentro do ambiente, antes da legenda, por exemplo `\renewcommand{\thetable}{2.1}`. Use `[!htbp]`.
+3. Tabela sem legenda na fonte: não crie legenda. Use `\begin{center} ... \end{center}` com o `tabular`, sem `table`, `\caption{}` e `\label{}`.
+4. Mesclagens horizontais: `\multicolumn`. Mesclagens verticais (sem `\multirow`): conteúdo na primeira linha do grupo, células abaixo vazias e `\cline{}` adequado; registre a solução na Fase 1.
+5. Tabelas largas ou longas: siga [R-TABELAS-VERIF], item 7. Se a fonte não as dividir, registre a divisão na Fase 1.
+6. Notas e fontes abaixo da tabela ("Fonte: ...", "Nota: ...") são transcritas em `\footnotesize`, imediatamente após o `tabular`.
+
+## 7.3 Figuras e elementos não textuais
+
+1. Figura com legenda na fonte: modelo de [R-TEMPLATE-DOC], item 4, com `[!htbp]`, o texto integral da legenda em `\caption{}` e o número original definido por `\renewcommand{\thefigure}{...}` dentro do ambiente. Figura sem legenda: `\begin{center}\includegraphics[...]{figs/N.png}\end{center}`.
+2. Se a posição final de uma figura ou tabela se afastar muito da posição na fonte, registre em `% PENDÊNCIAS`.
+3. Logotipos, carimbos, assinaturas, rubricas e selos seguem o parâmetro "Elementos não textuais". No padrão, são indicados no ponto em que aparecem por uma descrição curta entre colchetes, como `[assinatura]` ou `[carimbo da instituição]`. Textos legíveis dentro de carimbos são transcritos dentro dos colchetes.
+
+# 8. IMAGENS (complementa [R-FIGURAS])
+
+1. A origem padrão é RECORTE, com a lista de recortes na Fase 1 ([R-FIGURAS-ORIGEM], item 1).
+2. A numeração dos arquivos começa no valor do parâmetro "Numeração inicial das imagens" e segue sequencialmente.
+3. Textos internos de figuras (rótulos, eixos, valores em diagramas) fazem parte do recorte. Com tradução ativada, registre na Fase 1 as figuras cujos rótulos permanecerão no idioma original.
+4. Texto que aparece na fonte como imagem (tabela ou trecho inserido como figura, página escaneada) é transcrito como texto ou tabela, nunca recortado ([R-FIGURAS], item 3).
+5. Use CÓDIGO somente com aprovação do professor na Fase 1, e GERAR somente quando a figura estiver ilegível ou for inviável recortá-la, com descrição fiel que proíba acréscimos, remoções ou reinterpretações.
+
+# 9. FASE 1 — INVENTÁRIO E MAPEAMENTO
+
+Examine individualmente todas as páginas selecionadas e apresente:
+
+1. Parâmetros assumidos: valores padrão aplicados e campos ausentes.
+2. Identificação do arquivo: título, autor ou origem, data ou versão (quando identificáveis), idioma, existência de camada de texto, total de páginas e, em DOCUMENTO, quantidade de documentos contidos no PDF.
+3. Tabela de inventário:
+   - SLIDES, com as colunas: página do PDF; nº do frame (ou "omitida", com o motivo); título original; título traduzido (se houver tradução); tipo de conteúdo; quantidade de imagens; layout (duas colunas, só imagem ou uma coluna); observações de tradução; riscos de legibilidade.
+   - DOCUMENTO, com as colunas: página do PDF; página impressa (se diferente); títulos que começam na página; parágrafos; listas; tabelas; figuras; equações; notas de rodapé; elementos omitidos (com o motivo); observações.
+4. DOCUMENTO: estrutura hierárquica de títulos, com a numeração original e o comando LaTeX previsto para cada nível.
+5. Totais, que serão conferidos na Fase 2:
+   - SLIDES: páginas selecionadas, páginas omitidas, frames previstos (selecionadas menos omitidas), slides com imagem e arquivos de imagem necessários.
+   - DOCUMENTO: páginas selecionadas, páginas omitidas, títulos, tabelas, figuras, equações numeradas, notas de rodapé e arquivos de imagem necessários.
+6. Lista de recortes para o professor.
+7. Elementos de tratamento especial: tabelas com células mescladas ou largas demais, quadros, texto em várias colunas, ordem de leitura ambígua, cores com significado, elementos não textuais, manuscritos.
+8. Trechos ilegíveis, ambíguos ou encobertos, com página e contexto.
+9. Aparentes erros na fonte, com a correção proposta, para decisão do professor.
+10. Termos técnicos que exigem cuidado de tradução, com a tradução proposta (somente com tradução).
+11. SLIDES: slides que podem não caber e o ajuste tipográfico proposto.
+12. Divisão prevista em partes ([R-CONTINUACAO]), com o intervalo de páginas de cada parte.
+13. Confirmação explícita de que: nenhuma página selecionada foi esquecida; a ordem será mantida; não haverá resumo, acréscimo, comentário ou reorganização; nenhum erro será corrigido sem aprovação; em SLIDES, não haverá frames adicionais nem divididos e todas as imagens ficarão à direita (exceto slides só com imagem).
+
+Encerre a resposta e aguarde a aprovação.
+
+# 10. FASE 2 — PRODUÇÃO DO CÓDIGO
+
+Siga [R-SAIDA] e [R-VERIFICACAO], [R-TEMPLATE-SLIDES] ou [R-TEMPLATE-DOC] conforme o destino, e as substituições deste módulo. Além disso:
+
+1. Configuração sugerida no cabeçalho:
+   - SLIDES: os comandos de [R-TEMPLATE-SLIDES], item 4.
+   - DOCUMENTO: `\def\TipoDocumento{TEXTO}`, `\def\DocNum{NN}`, `\def\DocDescricao{<descrição curta>}` e `\def\DocSubtitulo{}`.
+2. Primeira linha de conteúdo após o cabeçalho: `% CÓPIA DIRETA — <arquivo>, p. <intervalo>`.
+3. Rastreabilidade (substitui o formato de [R-FIDELIDADE], item 4): `% Fonte direta: Arquivo.pdf, p. X`.
+   - SLIDES: antes de cada frame.
+   - DOCUMENTO: no início de cada página da fonte. Quando a página começar no meio de um parágrafo, insira o comentário em linha própria, sem linha em branco antes ou depois, para não quebrar o parágrafo.
+4. Antes de cada imagem: o comentário de origem ([R-FIGURAS-ORIGEM]).
+5. DOCUMENTO: cada parte termina ao final de um parágrafo, lista, tabela ou seção completos e a parte seguinte retoma com o comentário `% Fonte direta` da página em curso.
+6. Crédito final, se o parâmetro for SIM, e nada mais além dele:
+   - SLIDES: último frame `\begin{frame}{Créditos}` com "Slides adaptados e traduzidos de: <autor ou origem>, <arquivo>." (sem "e traduzidos" quando não houver tradução).
+   - DOCUMENTO: última linha de conteúdo, antes de `% FIM DO PRODUTO`: `\vfill\noindent{\footnotesize Transcrito de: <autor ou origem>, <arquivo>.}`
+
+# 11. VERIFICAÇÃO ESPECÍFICA DESTE MÓDULO
+
+1. Todas as páginas selecionadas e não omitidas foram reproduzidas, na ordem original.
+2. Os totais conferem com os aprovados na Fase 1 (em SLIDES, um frame por página, mais o frame de créditos, se houver).
+3. Nenhum conteúdo foi resumido, ampliado, comentado, reorganizado ou omitido.
+4. Números, unidades, símbolos e numeração de seções, equações, tabelas e figuras conferem com a fonte.
+5. Erros da fonte foram mantidos, ou corrigidos somente conforme a lista aprovada.
+6. Com tradução, todo conteúdo em outro idioma foi traduzido; sem tradução, o idioma original foi mantido.
+7. SLIDES: todas as imagens seguem o layout da seção 6.1 e as legendas da fonte foram preservadas como texto.
+8. DOCUMENTO: caracteres especiais escapados e nenhuma palavra partida por hifenização de fim de linha.
+9. Trechos ilegíveis estão marcados conforme aprovado e listados em `% PENDÊNCIAS`.
+
+# PARÂMETROS (preencha somente aqui — última seção do arquivo)
+
+Campos deixados como estão (com colchetes) assumem o padrão indicado. Campos marcados OBRIGATÓRIO não têm padrão e precisam ser preenchidos. Para preencher, substitua o conteúdo entre colchetes pelo valor desejado.
+
+PULAR_FASE_1: [SIM / NÃO — padrão: NÃO]
+Disciplina (sigla): [LEA / MEI / LSC / ESE / EMA / FSI / TrnsfCal / MqnsTerm — OBRIGATÓRIO]
+Número: [NN — número da aula (SLIDES) ou do documento (DOCUMENTO) — padrão: XX (ajustar depois no main.tex)]
+Destino: [SLIDES / DOCUMENTO — padrão: IDENTIFICAR PELO ARQUIVO (apresentação → SLIDES; documento em texto → DOCUMENTO)]
+Tema ou descrição curta: [TEXTO PARA \AulaConteudo OU \DocDescricao — padrão: IDENTIFICAR NO ARQUIVO]
+Arquivo PDF: [NOME DO ÚNICO ARQUIVO — padrão: O ÚNICO PDF ANEXADO]
+Autor ou origem: [NOME / INSTITUIÇÃO — padrão: IDENTIFICAR NO ARQUIVO]
+Intervalo de páginas: [INDICAR — padrão: TODAS]
+Páginas excluídas pelo professor: [LISTAR — padrão: NENHUMA]
+Idioma predominante: [PORTUGUÊS / INGLÊS / MISTO — padrão: IDENTIFICAR NO ARQUIVO]
+Traduzir para português do Brasil: [SIM / NÃO — padrão: SIM para SLIDES; NÃO para DOCUMENTO]
+Numeração inicial das imagens: [NÚMERO — padrão: 1]
+Crédito final à fonte: [SIM / NÃO — padrão: SIM]
+Capa e encerramento da fonte (somente SLIDES): [OMITIR / COPIAR — padrão: OMITIR, pois o template já gera a capa e o slide final]
+Título e identificação do documento-fonte (somente DOCUMENTO): [TRANSCREVER / OMITIR — padrão: TRANSCREVER]
+Cabeçalhos, rodapés e números de página da fonte (somente DOCUMENTO): [OMITIR / TRANSCREVER — padrão: OMITIR]
+Sumário e índices da fonte (somente DOCUMENTO): [TRANSCREVER / OMITIR — padrão: TRANSCREVER]
+Vários documentos no mesmo PDF (somente DOCUMENTO): [INICIAR CADA UM EM NOVA PÁGINA / CONTÍNUO — padrão: INICIAR CADA UM EM NOVA PÁGINA]
+Elementos não textuais — logotipos, carimbos, assinaturas, selos (somente DOCUMENTO): [INDICAR ENTRE COLCHETES / RECORTAR / OMITIR — padrão: INDICAR ENTRE COLCHETES, ex.: "[assinatura]"]
+Observações adicionais: [DESCREVER — padrão: NENHUMA]

@@ -1,0 +1,161 @@
+# MÓDULO: AVALIAÇÃO EXPERIMENTAL — ROTEIRO DE EXPERIMENTO (v3)
+
+Use este módulo junto com os arquivos 00_NucleoComum.txt e 00_RegrasAvaliacao.txt. O núcleo contém as regras gerais de fases, formato de saída, fidelidade, números, tabelas, figuras, template de documentos e verificação; as regras de avaliação contêm entrega, níveis, rubricas, formulário e correção assistida por IA. Este módulo acrescenta o que é específico desta tarefa e divide a Fase 1 em duas etapas.
+
+Finalidade: propor e, após aprovação, desenvolver uma avaliação em grupo no formato de experimento (físico, simulado ou híbrido), avaliada por relatório técnico em PDF entregue no Google Classroom. São gerados dois scripts para Content.tex: roteiro dos estudantes e guia reservado ao professor.
+
+Os parâmetros desta tarefa ficam na última seção deste arquivo ("PARÂMETROS"). Preencha somente ali.
+
+# 1. REGRAS ESPECÍFICAS
+
+1. Nas modalidades FÍSICA e HÍBRIDA, a lista de equipamentos, instrumentos, componentes, materiais, EPIs e limites operacionais é indispensável. Nas modalidades SIMULAÇÃO e HÍBRIDA, a lista de softwares é indispensável. Na modalidade SIMULAÇÃO, os campos de bancada, instrumentos, componentes, EPIs e limites operacionais são dispensados, e as seções do roteiro relativas à bancada física são omitidas. Não suponha que o laboratório possui um recurso não informado.
+2. Repetições, intervalos entre medições e limites operacionais são definidos pelo professor. Não invente esses valores.
+3. A proposta pode ir além do que está descrito literalmente nas fontes, desde que seja fundamentada nelas, esteja dentro do conteúdo da disciplina, use somente recursos informados e identifique o que vem das fontes e o que é proposta didática.
+4. Não invente normas, limites, especificações de equipamentos ou recomendações de segurança. Normas (por exemplo, NR-10) só podem ser citadas se constarem das fontes ou se o conteúdo externo for permitido.
+5. Níveis de detalhamento:
+   - GUIADO: conexões, configurações, cálculos, sequência operacional, pontos de conferência, tabelas e critérios de análise em passos detalhados.
+   - INTERMEDIÁRIO: procedimento, condições de operação e pontos de controle, com decisões técnicas delimitadas deixadas aos estudantes.
+   - INVESTIGATIVO: problema, objetivos, recursos, restrições, requisitos de segurança e resultados esperados; o planejamento experimental fica principalmente com os estudantes.
+
+# 2. METROLOGIA E TRATAMENTO DE DADOS
+
+Aplique somente o que o parâmetro "Incerteza de medição" e o planejamento aprovado exigirem. Como referência conceitual, use o GUM (Guia para a Expressão de Incerteza de Medição) e o VIM (Vocabulário Internacional de Metrologia):
+
+1. Média aritmética e desvio padrão amostral das repetições.
+2. Incerteza tipo A: desvio padrão da média, \(u_A=s/\sqrt{n}\).
+3. Incerteza tipo B: a partir da exatidão ou da resolução informadas para o instrumento, com a distribuição de probabilidade declarada (por exemplo, retangular: \(u_B=a/\sqrt{3}\)). Se a exatidão não tiver sido informada, não a invente: use apenas a resolução e registre essa limitação.
+4. Incerteza combinada: \(u_c=\sqrt{u_A^2+u_B^2}\) para grandezas medidas diretamente, e propagação de incertezas para grandezas calculadas.
+5. Incerteza expandida: \(U=k\,u_c\), com o fator de abrangência declarado. Para poucas repetições, considere o fator t de Student com os graus de liberdade correspondentes.
+6. Valores discrepantes: critério declarado e justificativa para qualquer exclusão.
+7. Erros em relação à referência teórica ou simulada, conforme o parâmetro. O valor de referência não deve ser tratado como isento de incerteza quando isso não se justificar.
+8. Resultado final no formato \((\bar{x}\pm U)\,\mathrm{unidade}\), com algarismos significativos coerentes com a incerteza.
+
+# 3. FASE 1A — VERIFICAÇÃO, MAPEAMENTO E ALTERNATIVAS
+
+Apresente:
+
+1. Tabela de parâmetros com as colunas: parâmetro; valor fornecido; situação (suficiente, incompleto, ausente); impacto.
+   Se recursos, repetições ou limites indispensáveis estiverem ausentes ou ambíguos, faça as perguntas e PARE aqui, sem apresentar alternativas.
+2. Mapa das referências, em tabela com as colunas: arquivo; página; conceito ou procedimento; classificação (fundamentação, equação, método, exemplo, procedimento, segurança, análise de dados, repetido, fora do tema, descartável); possível uso no experimento.
+3. Registro separado de: conceitos repetidos; divergências entre fontes; erros técnicos aparentes; dados ausentes; procedimentos inviáveis com os recursos informados; itens que exigem confirmação.
+4. Duas ou três alternativas de experimento, cada uma resumida em no máximo 10 linhas: título; modalidade; fenômeno investigado; objetivo; recursos usados; grandezas medidas, calculadas e simuladas; tratamentos e gráficos previstos; principais riscos; complexidade; adequação ao nível e à duração da prática.
+5. Tabela comparativa com, no mínimo: atendimento aos objetivos; fidelidade às referências; recursos; complexidade; segurança; qualidade dos dados; potencial de análise quantitativa; adequação ao nível; limitações.
+6. Alternativa recomendada, com justificativa técnica.
+
+Encerre a resposta e aguarde a escolha do professor. Não apresente o planejamento detalhado ainda.
+
+# 4. FASE 1B — PLANEJAMENTO DETALHADO DA ALTERNATIVA ESCOLHIDA
+
+Somente após a escolha do professor, apresente:
+
+1. Título definitivo e objetivos de aprendizagem observáveis.
+2. Fundamentação necessária (conceitos, modelos e equações, com as páginas das fontes).
+3. Lista completa de recursos, incluindo EPIs.
+4. Descrição da montagem ou do modelo de simulação, com pontos de medição.
+5. Sequência de etapas, com pontos de inspeção antes da energização ou do acionamento.
+6. Variáveis independentes, dependentes e controladas.
+7. Medições, repetições e intervalos definidos pelo professor.
+8. Cálculos preliminares e simulações necessárias.
+9. Tratamento de dados e de incerteza (seção 2 deste módulo).
+10. Tabelas e gráficos exigidos.
+11. Questões de análise e discussão.
+12. Estrutura do relatório.
+13. Critérios e pesos da avaliação, totalizando `10{,}0`.
+14. Resultados esperados (para o guia do professor), com expressões simbólicas quando os valores de entrada não permitirem cálculo numérico.
+15. Análise preliminar de riscos: perigo; consequência; medida preventiva; ação diante de anormalidade.
+16. Matriz de rastreabilidade: objetivo → etapa → dado produzido → análise → seção do relatório → critério → páginas das fontes.
+17. Lista numerada apenas das decisões ainda pendentes.
+
+Encerre a resposta e aguarde a aprovação.
+
+# 5. FASE 2 — SCRIPT 1: ROTEIRO EXPERIMENTAL DOS ESTUDANTES
+
+Resposta própria ([R-SAIDA]). Primeira linha de conteúdo após o cabeçalho: `% SCRIPT 1 — ROTEIRO EXPERIMENTAL DESTINADO AOS ESTUDANTES`.
+
+Configuração sugerida no cabeçalho: `\def\TipoDocumento{EXPERIMENTO}` e `\def\DocDescricao{<título aprovado>}`.
+
+Seções aplicáveis (sem repetir o subtítulo automático "Descrição e Procedimentos"):
+
+1. Identificação: modalidade, grupo e integrantes, produtos obrigatórios, prazo.
+2. Contextualização e objetivos: problema investigado, objetivo geral, objetivos específicos e resultados de aprendizagem, sem entregar as análises prontas.
+3. Fundamentação teórica: apenas o necessário, com variáveis, unidades, hipóteses e validade de cada equação.
+4. Materiais, equipamentos, softwares e EPIs: somente os aprovados.
+5. Segurança e preparação da bancada: limites operacionais; EPIs; estado inicial de controles e fontes; inspeção visual; ponto obrigatório de liberação pelo professor antes de energizar ou acionar; desligamento; descarga de elementos armazenadores de energia; ação diante de cheiro, ruído, aquecimento, oscilação ou comportamento anormal; organização final; tabela de análise preliminar de riscos.
+6. Cálculos e preparação prévia: para cada cálculo, dados de entrada, grandeza, modelo, unidade e tabela de registro. Use campos simbólicos quando algum valor ainda não estiver definido.
+7. Simulação (quando houver): software, modelo, parâmetros, condições iniciais, grandezas observadas, variações, resultados e capturas exigidos, tabela de registro e critério de comparação. Na modalidade híbrida, a simulação não substitui a etapa física.
+8. Procedimento: etapas numeradas e verificáveis, cada uma com ação; configuração dos instrumentos (função, faixa, terminais, forma de conexão); ponto de medição; condição aplicada; repetições; intervalo; tabela de registro; critério para avançar; cuidado de segurança. Destaque erros previsíveis de execução.
+9. Registro de dados: tabelas vinculadas às etapas, com grandezas e unidades nos cabeçalhos, linhas para todas as repetições e campo de observações.
+10. Tratamento dos dados: cálculos exigidos, estatística, incerteza e erros (seção 2 deste módulo), com critérios de arredondamento e forma de apresentação.
+11. Gráficos: eixos, unidades, séries, barras de erro, ajuste esperado, parâmetros a extrair e interpretação. Exija título, eixos identificados, legenda e distinção entre valores calculados, simulados e medidos.
+12. Questões de análise e discussão: comparação teoria–simulação–experimento, tendências, divergências, fontes de erro, limitações do modelo, incerteza e conclusão, qualidade dos dados e melhorias. As questões não revelam as respostas.
+13. Relatório: capa e identificação; introdução; objetivos; fundamentação; materiais e métodos; resultados; tratamento de dados; gráficos; análise e discussão; respostas às questões; conclusão; referências ABNT. O relatório deve distinguir informação das fontes, fontes externas, dados do grupo e interpretações. Inclua a regra de uso de IA somente se o parâmetro não for "NÃO INCLUIR".
+14. Entrega e nota: prazo, Google Classroom, PDF, convenção de nome, verificação do arquivo, critérios e pesos (soma `10{,}0`) e regra de nota zero por atraso em destaque. Inclua a regra de participação individual somente se o parâmetro não for "NÃO INCLUIR".
+15. Anexo — Folha de dados de bancada: cópias em branco das tabelas de registro, com campos para grupo, data, bancada e identificação dos instrumentos usados, para preenchimento à mão durante a prática. Comece o anexo com `\newpage`.
+
+Os critérios não devem premiar apenas a proximidade entre o valor medido e o previsto. Valorize análise, rastreabilidade e justificativa técnica.
+
+# 6. FASE 2 — SCRIPT 2: GUIA E RUBRICA DO PROFESSOR
+
+Resposta própria, depois do Script 1. Primeira linha de conteúdo após o cabeçalho: `% SCRIPT 2 — GUIA E RUBRICA RESERVADOS AO PROFESSOR`.
+
+Configuração sugerida no cabeçalho: `\def\TipoDocumento{OUTRO}`, `\def\RotuloDocumentoPersonalizado{Guia do Professor}` e `\def\DocSubtitulo{Uso exclusivo do professor}`.
+
+Conteúdo:
+
+1. Visão geral: finalidade didática, conhecimentos avaliados, recursos, pontos críticos, condições que inviabilizam a atividade e evidências que devem constar no relatório.
+2. Resultados esperados por etapa: comportamento, modelo de referência, ordem de grandeza, tendências, relações a observar, divergências justificáveis e sinais de erro de montagem, configuração ou cálculo. Sem valor numérico inventado.
+3. Lista de conferência na bancada: montagem, conexões, polaridades e sentidos, faixas dos instrumentos, limites, EPIs, liberação para energização ou acionamento, qualidade e quantidade das medições, desligamento e organização.
+4. Respostas esperadas: cálculos preliminares, relações teóricas, questões de análise, interpretação dos gráficos, comparação teoria–simulação–experimento e conclusão. Aceite interpretações diferentes quando tecnicamente corretas e sustentadas pelos dados.
+5. Rubricas REL-XX no layout de [R-AV-RUBRICA], com descritores específicos deste experimento.
+6. Penalidades administrativas e ocorrências de segurança, separadas dos critérios acadêmicos ([R-AV-ADMIN]). Aplique apenas consequências aprovadas.
+7. Formulário final de correção ([R-AV-FORMULARIO]), incluindo data de realização da prática.
+8. Correção assistida por IA ([R-AV-CORRECAO-IA]), incluindo arquivos de dados e observações do professor sobre a execução, e a conferência de coerência entre tabelas, cálculos e gráficos.
+
+# 7. VERIFICAÇÃO ESPECÍFICA DESTE MÓDULO
+
+1. A alternativa aprovada foi respeitada e só recursos informados foram usados.
+2. Toda etapa está associada a objetivo, dado e tabela de registro.
+3. O número de repetições e os limites operacionais correspondem aos definidos pelo professor.
+4. Os instrumentos têm configuração e forma de conexão claras.
+5. Há ponto de liberação antes da energização ou do acionamento.
+6. O tratamento estatístico e a incerteza são compatíveis com os dados e com a informação disponível sobre os instrumentos.
+7. Os gráficos pedidos podem ser construídos com as medições previstas.
+8. As questões não revelam respostas; os resultados esperados aparecem só no guia do professor.
+9. [R-AV-VERIFICACAO] foi cumprida.
+
+# PARÂMETROS (preencha somente aqui — última seção do arquivo)
+
+Campos deixados como estão (com colchetes) assumem o padrão indicado. Campos marcados OBRIGATÓRIO não têm padrão e precisam ser preenchidos. Para preencher, substitua o conteúdo entre colchetes pelo valor desejado.
+
+PULAR_FASE_1: [SIM / NÃO — padrão: NÃO]
+Disciplina (sigla): [LEA / MEI / LSC / ESE / EMA / FSI / TrnsfCal / MqnsTerm — OBRIGATÓRIO]
+Número do experimento: [NN — padrão: XX (ajustar depois no main.tex)]
+Tema ou conteúdos avaliados: [DESCREVER — padrão: DEFINIR A PARTIR DAS REFERÊNCIAS NA FASE 1A]
+Arquivos de referência: [LISTAR — padrão: TODOS OS PDFs ANEXADOS]
+Páginas dos PDFs: [INTERVALOS — padrão: TODAS]
+Modalidades permitidas: [FÍSICA / SIMULAÇÃO / HÍBRIDA / MAIS DE UMA — padrão: PROPOR NA FASE 1A, CONFORME OS RECURSOS INFORMADOS]
+Nível de detalhamento: [GUIADO / INTERMEDIÁRIO / INVESTIGATIVO — padrão: INTERMEDIÁRIO]
+Integrantes por grupo: [QUANTIDADE — padrão: ATÉ 4]
+Bancadas ou grupos simultâneos: [QUANTIDADE — OBRIGATÓRIO para FÍSICA ou HÍBRIDA; padrão: NÃO SE APLICA para SIMULAÇÃO]
+Duração da prática em laboratório: [TEMPO — padrão: 100 MINUTOS (2 HORAS-AULA) para FÍSICA ou HÍBRIDA; NÃO SE APLICA para SIMULAÇÃO extraclasse]
+Equipamentos disponíveis: [MODELOS, QUANTIDADES POR BANCADA E LIMITES — OBRIGATÓRIO para FÍSICA ou HÍBRIDA; padrão: NÃO SE APLICA para SIMULAÇÃO]
+Instrumentos disponíveis: [MODELOS, QUANTIDADES, FAIXAS, RESOLUÇÃO E EXATIDÃO — ex.: "±(0,5 % da leitura + 2 dígitos)"; se a exatidão não for conhecida, escreva "EXATIDÃO NÃO INFORMADA" — OBRIGATÓRIO para FÍSICA ou HÍBRIDA; padrão: NÃO SE APLICA para SIMULAÇÃO]
+Componentes e materiais disponíveis: [VALORES, TOLERÂNCIAS, QUANTIDADES E LIMITES — OBRIGATÓRIO para FÍSICA ou HÍBRIDA; padrão: NÃO SE APLICA para SIMULAÇÃO]
+Softwares permitidos: [LISTAR — OBRIGATÓRIO para SIMULAÇÃO ou HÍBRIDA; padrão: NENHUM para FÍSICA]
+Equipamentos de proteção disponíveis: [LISTAR — OBRIGATÓRIO para FÍSICA ou HÍBRIDA; padrão: NÃO SE APLICA para SIMULAÇÃO]
+Limites operacionais definidos pelo professor: [TENSÃO, CORRENTE, POTÊNCIA, TEMPERATURA, PRESSÃO, ROTAÇÃO, CARGA... — OBRIGATÓRIO para FÍSICA ou HÍBRIDA; padrão: NÃO SE APLICA para SIMULAÇÃO]
+Repetições por medição: [NÚMERO — padrão: 3 para FÍSICA ou HÍBRIDA; NÃO SE APLICA para SIMULAÇÃO determinística]
+Intervalo entre medições: [DEFINIR — padrão: NÃO SE APLICA]
+Tratamento estatístico obrigatório: [ex.: MÉDIA, DESVIO PADRÃO AMOSTRAL — padrão: MÉDIA E DESVIO PADRÃO AMOSTRAL quando houver repetições; NÃO SE APLICA nos demais casos]
+Incerteza de medição: [NÃO EXIGIR / TIPO A / TIPOS A E B COMBINADAS / COMBINADA E EXPANDIDA — padrão: DEFINIR NA FASE 1B (NÃO EXIGIR para SIMULAÇÃO)]
+Erros em relação à referência: [ERRO ABSOLUTO / ERRO RELATIVO / AMBOS / NENHUM — padrão: ERRO RELATIVO]
+Gráficos obrigatórios: [LISTAR — padrão: DEFINIR NA FASE 1B]
+Estrutura adicional do relatório: [DESCREVER — padrão: NENHUMA]
+Critérios ou pesos já definidos: [DESCREVER — padrão: PROPOR NA FASE 1B]
+Participação individual: [REGRA PARA AUSENTES NA PRÁTICA — padrão: NÃO INCLUIR]
+Arquivo ausente, corrompido ou em formato incorreto: [CONSEQUÊNCIA — padrão: REGISTRAR E DECIDIR CASO A CASO]
+Uso de IA pelos estudantes e similaridade: [REGRA DEFINIDA PELO PROFESSOR — padrão: NÃO INCLUIR]
+Prazo e horário de entrega: [DATA E HORÁRIO — padrão: A DEFINIR]
+Convenção de nome do arquivo: [EX.: SIGLA_Exp02_Grupo03.pdf — padrão: SIGLA_ExpNN_GrupoXX.pdf]
+Conteúdo externo permitido (para a IA): [SIM / NÃO — padrão: NÃO]
+Observações adicionais (inclusive restrições): [DESCREVER — padrão: NENHUMA]

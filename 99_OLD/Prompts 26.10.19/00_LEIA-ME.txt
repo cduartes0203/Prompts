@@ -1,0 +1,49 @@
+PROMPTS V3 — COMO USAR
+
+1. Escolha o módulo de acordo com a tarefa:
+   - PromptAula.txt ............... aula em slides a partir de apresentações, livros ou ambos
+                                    (parâmetro "Tipo de fonte": APRESENTAÇÃO / LIVRO / MISTO)
+   - PromptCopiar.txt ............. cópia direta e integral de um PDF
+                                    (parâmetro "Destino": SLIDES → Presentation.tex / DOCUMENTO → Content.tex)
+   - PromptAvaliacaoAnalise.txt ... avaliação por análise (relatório + apresentação opcional)
+                                    (parâmetro "Objeto da análise": ARTIGO / ESTUDO DE CASO, ex.: reportagem + NR-10)
+   - PromptExperimentos.txt ....... avaliação experimental (roteiro + guia do professor)
+   - PromptListaExercicios.txt .... lista de exercícios em documento (lista + gabarito)
+                                    (parâmetro "Origem dos exercícios": DAS FONTES / ADAPTADOS / ELABORADOS / COMBINAÇÃO)
+
+2. Preencha somente o bloco PARÂMETROS, que fica no final de cada módulo.
+   - Quase todos os campos têm padrão ("padrão: ..."). Se o padrão servir, deixe o campo como está.
+   - Só os campos marcados OBRIGATÓRIO precisam ser preenchidos (por exemplo, a disciplina; no PromptExperimentos, os recursos do laboratório quando a modalidade for física ou híbrida).
+   - "IDENTIFICAR..." = a IA deduz pelos arquivos e pede confirmação na Fase 1.
+   - "A DEFINIR" = o valor aparece como [A DEFINIR] no documento, para você completar depois.
+   - Campos marcados "somente <opção>" são ignorados quando a opção não se aplica.
+
+3. Envie para a IA, na mesma mensagem ou em sequência:
+   - PromptAula, PromptCopiar ou PromptListaExercicios:
+       a) 00_NucleoComum.txt; b) o módulo preenchido; c) os PDFs de referência.
+   - PromptAvaliacaoAnalise ou PromptExperimentos:
+       a) 00_NucleoComum.txt; b) 00_RegrasAvaliacao.txt; c) o módulo preenchido; d) os PDFs de referência.
+
+4. Comandos úteis durante a conversa:
+   - APROVADO ............ libera a próxima fase ou etapa
+   - CONTINUAR ........... pede a próxima parte de um código dividido
+   - PULAR_FASE_1: SIM ... vai direto à geração do código (somente para tarefas simples)
+
+5. O código gerado começa com um cabeçalho em comentários contendo a configuração sugerida para o main.tex, o resultado da verificação e as pendências.
+
+6. Manutenção: as regras são identificadas por rótulos entre colchetes (ex.: [R-TABELAS], [R-AV-RUBRICA]). Ao editar, mantenha os rótulos; os módulos os citam em vez de números de seção.
+   - Regra que vale para todos os módulos ........ 00_NucleoComum.txt
+   - Regra que vale só para avaliações ........... 00_RegrasAvaliacao.txt
+   - Regra de uma única tarefa ................... no próprio módulo
+
+7. Correspondência com a versão anterior (cópia em Prompts_V2_backup):
+   - PromptAulas + PromptAulasLivro ................. → PromptAula
+   - PromptCopiarSlides + PromptCopiarDoc ........... → PromptCopiar
+   - PromptAvaliaçãoArtigo + PromptEstudoDeCaso ..... → PromptAvaliacaoAnalise
+   - PromptExperimentos ............................. → PromptExperimentos (referências atualizadas)
+   - Seção 12 do núcleo (rubricas) .................. → 00_RegrasAvaliacao
+   - Seções 10.2 e 10.3 do núcleo (densidade e exercícios em slides) → PromptAula
+
+8. Ajuste recomendado nos templates de aulas (00_TemplatesAulas/main.tex):
+   - acrescentar \usepackage{ragged2e} ao preâmbulo (os prompts já trazem uma alternativa caso ele não seja carregado);
+   - trocar a opção 16pt de \documentclass, que o Beamer não reconhece e substitui por 11pt, por 14pt ou removê-la.

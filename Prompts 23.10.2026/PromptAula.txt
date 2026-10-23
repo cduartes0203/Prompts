@@ -1,0 +1,187 @@
+# MÓDULO: AULA EM SLIDES A PARTIR DE APRESENTAÇÕES E LIVROS (v3)
+
+Use este módulo junto com o arquivo 00_NucleoComum.txt. O núcleo contém as regras gerais de fases, formato de saída, fidelidade, números, tabelas, figuras, template de slides e verificação. Este módulo acrescenta o que é específico desta tarefa.
+
+Finalidade: produzir uma aula em slides (Presentation.tex) a partir de apresentações em PDF, de capítulos de livros ou de ambos, preservando o significado técnico e organizando o conteúdo didaticamente.
+
+Para copiar slides ou documentos sem reorganização, use o PromptCopiar.
+
+Os parâmetros desta tarefa ficam na última seção deste arquivo ("PARÂMETROS"). Preencha somente ali.
+
+# 1. ORIENTAÇÕES SOBRE AS FONTES
+
+1. APRESENTAÇÃO: slides em PDF. Uma página pode ter pouco texto e muito conteúdo visual; diagramas, gráficos, circuitos, tabelas e exemplos visuais são conteúdo de aula.
+2. LIVRO: livros inteiros em PDF podem ultrapassar a capacidade de leitura da IA; o ideal é anexar apenas os capítulos necessários. Quando o escopo não estiver definido, use o sumário, o índice remissivo e os títulos das seções para localizar as partes relacionadas ao tema e proponha o escopo na Fase 1. Não confunda página impressa com página do PDF; quando forem diferentes, registre as duas.
+3. MISTO: trate cada arquivo conforme o seu tipo, consolide os conteúdos repetidos entre apresentações e livros e escolha uma notação principal ([R-IDIOMA], item 7).
+4. Se você não conseguir ler alguma página do escopo (página escaneada sem texto, arquivo truncado, limite de contexto), informe exatamente quais páginas na Fase 1. Não complete o conteúdo por memória.
+
+# 2. MODOS DE ELABORAÇÃO
+
+1. FIEL: preserve a ordem das fontes e todo o conteúdo técnico classificado como útil ou essencial (conceitos, equações, dados e exemplos). Melhore a redação, elimine repetições e divida conteúdos densos em mais de um frame. Não acrescente desenvolvimentos que não estejam nas fontes. Em livros, apresente os conceitos essenciais de forma condensada.
+2. ADAPTAÇÃO DIDÁTICA: reorganize quando necessário para a aprendizagem, preserve o significado técnico e acrescente explicações intermediárias derivadas diretamente das fontes. Elimine o que não contribuir para os objetivos; toda eliminação deve constar do planejamento da Fase 1.
+3. DESENVOLVIMENTO APROFUNDADO: apresente demonstrações, hipóteses, deduções, casos particulares e exemplos com maior densidade matemática, mantendo as fontes como base.
+
+Em qualquer modo, não transforme cada página em um slide e não reproduza parágrafos longos. Uma definição formal curta pode ser mantida quase literal quando a precisão depender da redação; a explicação dela é redigida por você.
+
+# 3. NÍVEIS DE ABORDAGEM
+
+1. INTRODUTÓRIO GUIADO: linguagem simples e tecnicamente correta; defina todos os termos novos; mostre etapas intermediárias; use analogias controladas; exemplos concretos antes das generalizações; sem saltos algébricos.
+2. INTERMEDIÁRIO: terminologia usual da área da disciplina; revisões breves dos pré-requisitos; etapas centrais das deduções; combinação de interpretação física, formulação matemática e aplicação.
+3. AVANÇADO: linguagem técnica concisa; pressuponha os pré-requisitos informados; enfatize hipóteses, condições de validade, demonstrações, generalizações, limitações e relações com outros métodos.
+
+Em qualquer nível, simplifique a explicação, nunca o conteúdo técnico, e não use linguagem condescendente.
+
+# 4. ESCOPO
+
+Ignore, nas fontes:
+
+1. Em apresentações: capas, identificação institucional, informações administrativas, sumários que só repetem títulos, páginas de transição sem conteúdo, intervalos, agradecimentos e páginas contendo apenas "perguntas" ou "dúvidas".
+2. Em livros: capas, páginas editoriais, prefácios sem relação com o tema, listas gerais de símbolos desnecessárias, índices e sumários usados só para navegação e capítulos fora do escopo.
+3. Em ambos: biografias, referências sem conteúdo explicativo e tudo que estiver fora do tema.
+
+Não descarte figuras, tabelas, quadros, exemplos resolvidos, observações, demonstrações ou exercícios só porque têm pouco texto.
+
+# 5. DENSIDADE E LEGIBILIDADE DOS SLIDES
+
+1. Cada frame desenvolve uma ideia principal.
+2. Limites de referência, que são margens de segurança e não metas:
+   - somente texto: até 4 ou 5 itens curtos;
+   - texto e figura: até 3 itens curtos;
+   - cada item com no máximo cerca de 2 linhas;
+   - com tabela: apenas uma frase curta além da tabela;
+   - uma equação principal ou um pequeno grupo de equações relacionadas;
+   - uma figura principal, ou duas quando houver comparação.
+3. Quando o conteúdo não couber, divida-o por unidade conceitual em frames com títulos `Título` e `Título -- Continuação`. Não corte frases nem omita informação técnica.
+4. Não transforme todo texto em `itemize`. Use texto corrido curto, blocos, equações destacadas, tabelas e listas numeradas quando comunicarem melhor.
+5. As proibições de [R-TEMPLATE-SLIDES], item 7, valem sem exceção.
+
+# 6. EXERCÍCIOS PARA RESOLUÇÃO EM SALA
+
+Todo exercício para o quadro (exemplo convertido em exercício ou exercício do parâmetro "Exercícios para o quadro") usa dois frames consecutivos.
+
+Sempre que o bloco contiver pelo menos um exercício, a primeira linha de código após o cabeçalho deve ser:
+
+```
+\providecommand{\justifying}{\leftskip=0pt\rightskip=0pt\parfillskip=0pt plus 1fil\relax}
+```
+
+Essa linha garante o texto justificado mesmo quando o template não carrega o pacote `ragged2e` e não tem efeito quando o pacote já está carregado.
+
+Frame 1, somente o enunciado no topo, com área livre abaixo:
+
+```
+% Exercício N — Enunciado
+\begin{frame}[t]{Exercício N}
+    \justifying
+    \textbf{Enunciado.} Texto integral e autocontido, com todos os dados e unidades.
+
+    \vfill
+\end{frame}
+```
+
+Frame 2, imediatamente depois, com a resolução:
+
+```
+% Exercício N — Resolução
+\begin{frame}[t]{Resolução do Exercício N}
+    \begin{enumerate}
+        \item Dados conhecidos e grandeza solicitada.
+        \item Princípio, modelo ou equação aplicável.
+        \item Desenvolvimento algébrico e substituição numérica.
+        \item Resultado com unidade e interpretação física.
+    \end{enumerate}
+\end{frame}
+```
+
+1. Na área livre do Frame 1 não entra resposta, dica, cálculo ou figura decorativa.
+2. Não repita o enunciado no frame da resolução.
+3. Se a resolução não couber, divida somente a resolução em `Resolução do Exercício N -- Continuação`.
+4. Exercícios das fontes: só apresente a resolução se ela constar na fonte ou tiver sido verificada por você; nesse segundo caso, registre `% Resolução elaborada e verificada; não consta na fonte`.
+5. Exercícios elaborados por você: dados coerentes com o tema e resolução verificada. Registre `% Exercício elaborado a partir de: Arquivo.pdf, p. X` antes do enunciado.
+
+# 7. PROGRESSÃO DIDÁTICA DE REFERÊNCIA
+
+Quando compatível com o tema e as fontes, sem acrescentar partes artificialmente:
+
+1. motivação e contexto de aplicação;
+2. objetivos de aprendizagem;
+3. revisão dos pré-requisitos necessários;
+4. definição do problema ou fenômeno;
+5. conceitos e definições fundamentais;
+6. hipóteses e condições de validade;
+7. desenvolvimento matemático em etapas;
+8. interpretação física dos resultados;
+9. exemplos resolvidos;
+10. aplicação em engenharia, medição, projeto, operação ou laboratório;
+11. erros comuns, limitações e cuidados;
+12. síntese e conexão com o próximo tópico.
+
+Cada bloco de slides deve deixar claro o que se estuda, por que importa e como se aplica.
+
+# 8. FASE 1 — ANÁLISE E PLANEJAMENTO
+
+Apresente:
+
+1. Parâmetros assumidos: valores padrão aplicados e campos ausentes.
+2. Identificação de cada fonte: arquivo, tipo (apresentação ou livro), título, autores, edição (livros, quando identificável), idioma e páginas, capítulos ou seções relevantes. Informe páginas que não puderam ser lidas.
+3. Mapa das fontes, em tabela com as colunas: arquivo; capítulo ou seção (livros); página do PDF (e página impressa, quando diferente); assunto (conceito, método, exemplo, figura, tabela ou exercício); classificação (essencial, complementar, repetido, avançado para a turma, fora do escopo, descartável); uso proposto.
+4. Pré-requisitos encontrados nas fontes e sua compatibilidade com o perfil da turma.
+5. Conteúdos repetidos entre arquivos ou capítulos e como serão consolidados.
+6. Conflitos entre fontes, diferenças de notação (com a notação principal proposta), erros técnicos aparentes, equações suspeitas, hipóteses omitidas, trechos ambíguos e lacunas (por exemplo, exemplo sem todos os dados).
+7. Tratamento de cada exemplo resolvido das fontes: exemplo resolvido no slide ou exercício para o quadro (seção 6 deste módulo).
+8. Sequência didática, em tabela com as colunas: nº provisório do frame; título; objetivo do frame; conceito central; origem (arquivo, capítulo ou seção, páginas); recurso (equação, demonstração, exemplo, figura, tabela ou exercício); origem de cada figura (RECORTE, CÓDIGO ou GERAR); tempo estimado.
+9. Lista de recortes ([R-FIGURAS-ORIGEM], item 1).
+10. Quantidade de frames e tempo total. Se o tempo exceder a duração, aplique o parâmetro de prioridade ou, se ele for PERGUNTAR, apresente as opções.
+11. Perguntas objetivas sobre decisões que não possam ser tomadas com segurança.
+
+Encerre a resposta e aguarde a aprovação.
+
+# 9. FASE 2 — PRODUÇÃO DO PRESENTATION.TEX
+
+Siga [R-SAIDA], [R-TEMPLATE-SLIDES] e [R-VERIFICACAO], além das seções 5 e 6 deste módulo. Além disso:
+
+1. Todo conteúdo essencial ou útil aprovado aparece na aula ou consta como consolidado em outro frame. Conteúdos complementares só entram quando aprovados e quando couberem na duração.
+2. Não use a quantidade de páginas das fontes como meta de frames. Uma página pode originar vários frames, e um frame pode sintetizar várias páginas.
+3. Comentário de rastreabilidade ([R-FIDELIDADE], item 4):
+   - apresentações: `% Fonte-base: Arquivo.pdf, p. X`;
+   - livros: `% Fonte-base: SobrenomeAutor, título abreviado, cap. X, seção Y, p. Z (PDF p. W)`.
+4. Em cada desenvolvimento matemático: declare hipóteses, defina variáveis e unidades, preserve limites de somatórios e integrais, mostre as etapas compatíveis com o nível, interprete o resultado e informe a validade.
+5. Exemplos resolvidos mostrados como exemplo preservam os dados e a lógica da fonte e trazem: enunciado, dados conhecidos, grandeza solicitada, estratégia, equações, substituição numérica, resultado com unidade e interpretação física breve. Podem ocupar mais de um frame, com título `Exemplo N -- Continuação`.
+6. Se o conteúdo externo for permitido, identifique-o com `% Conteúdo complementar externo: <referência>` e inclua ao final um frame de referências legível.
+
+# 10. VERIFICAÇÃO ESPECÍFICA DESTE MÓDULO
+
+1. Todos os conteúdos essenciais ou úteis aprovados estão contemplados.
+2. Nada fora do escopo ou do tema foi incluído.
+3. A linguagem e a profundidade correspondem ao modo, ao nível e ao perfil informados.
+4. Definições, hipóteses e condições de validade foram preservadas.
+5. As diferenças de notação foram tratadas de forma consistente e não há conceitos repetidos sem finalidade didática.
+6. Os exemplos e exercícios seguem o tratamento aprovado e a regra de dois frames.
+7. O tempo estimado é compatível com a duração aprovada.
+
+# PARÂMETROS (preencha somente aqui — última seção do arquivo)
+
+Campos deixados como estão (com colchetes) assumem o padrão indicado. Campos marcados OBRIGATÓRIO não têm padrão e precisam ser preenchidos. Para preencher, substitua o conteúdo entre colchetes pelo valor desejado.
+
+PULAR_FASE_1: [SIM / NÃO — padrão: NÃO]
+Disciplina (sigla): [LEA / MEI / LSC / ESE / EMA / FSI / TrnsfCal / MqnsTerm — OBRIGATÓRIO]
+Número da aula: [NN — padrão: XX (ajustar depois no main.tex)]
+Tema da aula: [TEMA — padrão: IDENTIFICAR NAS FONTES]
+Tipo de fonte: [APRESENTAÇÃO / LIVRO / MISTO — padrão: IDENTIFICAR NOS ARQUIVOS]
+Arquivos de referência: [LISTAR OS PDFs; para livros, título, autores e edição — padrão: TODOS OS PDFs ANEXADOS, IDENTIFICADOS NOS ARQUIVOS]
+Escopo nas fontes: [PÁGINAS DO PDF POR ARQUIVO; para livros, capítulos, seções e páginas impressas — padrão: TODAS as páginas das apresentações; PROPOR NA FASE 1 para livros]
+Conteúdos obrigatórios: [LISTAR — padrão: NENHUM ALÉM DO TEMA]
+Conteúdos excluídos: [LISTAR — padrão: NENHUM]
+Modo de elaboração: [FIEL / ADAPTAÇÃO DIDÁTICA / DESENVOLVIMENTO APROFUNDADO — padrão: FIEL para APRESENTAÇÃO; ADAPTAÇÃO DIDÁTICA para LIVRO ou MISTO]
+Nível de abordagem: [INTRODUTÓRIO GUIADO / INTERMEDIÁRIO / AVANÇADO — padrão: INTERMEDIÁRIO]
+Perfil da turma: [PERÍODO, FORMAÇÃO PRÉVIA, DIFICULDADES CONHECIDAS — padrão: GRADUAÇÃO EM ENGENHARIA, NO PERÍODO USUAL DA DISCIPLINA, SEM DIFICULDADES ESPECÍFICAS INFORMADAS]
+Conhecimentos prévios dominados: [DESCREVER — padrão: PRÉ-REQUISITOS USUAIS DA DISCIPLINA, IDENTIFICADOS NA FASE 1]
+Conhecimentos que devem ser retomados: [DESCREVER — padrão: NENHUM]
+Objetivos específicos de aprendizagem: [DESCREVER — padrão: DEFINIR NA FASE 1]
+Duração prevista da aula: [TEMPO — padrão: 100 MINUTOS (2 HORAS-AULA)]
+Número de frames: [INTERVALO — padrão: DEFINIR PELO CONTEÚDO E PELA DURAÇÃO]
+Prioridade quando o conteúdo exceder a duração: [CORTAR COMPLEMENTARES / DIVIDIR EM DUAS AULAS / PERGUNTAR — padrão: PERGUNTAR]
+Exemplos resolvidos das fontes: [MOSTRAR COMO EXEMPLO RESOLVIDO / CONVERTER EM EXERCÍCIO PARA O QUADRO / DECIDIR NA FASE 1 — padrão: DECIDIR NA FASE 1]
+Exercícios para o quadro: [QUANTIDADE E ORIGEM (DAS FONTES / ELABORADOS A PARTIR DAS FONTES) — padrão: NENHUM]
+Conteúdo externo permitido: [SIM / NÃO — padrão: NÃO]
+Observações adicionais: [DESCREVER — padrão: NENHUMA]
